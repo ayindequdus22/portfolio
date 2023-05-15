@@ -1,0 +1,103 @@
+body{
+    /* font-family: 'Poppins', sans-serif; */
+  overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+nav{
+    box-shadow:2px 2px 2px rgb(82, 80, 80);
+}
+.introduction{
+    padding-top:200px;
+    margin-left:100px;
+}
+a{
+  font-size: 20px; 
+}
+.nav-item>a:hover{
+    color:red !important;
+text-decoration: underline;
+transition: all 10s;
+}
+.name-typer{
+    font-size:70px;
+    font-family: cursive;
+}
+
+.content{
+    background-image: url("image/banner.jpg");
+    background-size:inherit;
+    background-repeat: no-repeat;
+}
+#hire{
+
+    width:200px;
+    height:50px;
+}
+/* about section */
+.hireme{
+    width:200px;
+    height:60px;
+    font-size:30px;
+}
+.webdev{
+    font-family:serif;
+}
+.btn:hover
+{
+    transition: all 0.3s ease;
+}
+.btn{
+    transform: scale(1.05);
+}
+#services{
+    background-color: black;
+}
+.shake{
+    transition: all 1s ease;
+}
+
+.shake:hover i{
+   color:white !important; 
+   transform: scale(1.05);
+
+}
+.shake:hover{
+ background-color: red !important;
+    transform: scale(1.02);
+   }
+ .icon{
+    color:red !important;
+} 
+.project{
+    font-family:verdana;
+    text-decoration-line:underline;
+    text-decoration-color: red;
+    padding-top: 50px;
+}
+.contacts{
+    font-family:verdana;
+}
+.inputmsg{
+    height:80px !important;
+}
+.serif{
+    font-weight:300;
+    font-family:serif;
+    color:black;
+    text-decoration: none;
+}
