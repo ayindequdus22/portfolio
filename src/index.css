@@ -5,11 +5,11 @@
 
 @layer base {
   html {
-    @apply text-[62.5%] font-sans text-base overflow-x-hidden;
+    @apply text-[62.5%] font-roboto text-base overflow-x-hidden;
 
   }
   body{
-    @apply bg-[#F8F9FA]
+    @apply  text-mytext
   }
 }
 
@@ -27,7 +27,9 @@
 @tailwind utilities;
 
 @layer components {
-    
+   .btn{
+   @apply border-primary border text-primary rounded-md bg-white hover:bg-primary hover:text-white ease-linear duration-300 font-montserrat
+   } 
     .dfAc {
         @apply flex items-center justify-center;
     }
