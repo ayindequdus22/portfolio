@@ -29,4 +29,4 @@ const Skill = (): React.JSX.Element => {
 export default Skill
 //  With an eye for detail, I ensure designs are not only visually appealing but also accessible and optimized for performance across devices.
 // Proficient in managing databases like MongoDB and MySql, I design scalable APIs and handle complex data operations to power seamless user experiences
-//  By focusing on performance optimization and intuitive design, I prioritize both functionality and aesthetics.
+//  By focusing on performance optimization and intuitive design, Iioritize both functionality and aesthetics.
