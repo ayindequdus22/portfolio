@@ -10,7 +10,7 @@ const Skill = (): React.JSX.Element => {
         { heading: "Mobile Development", icon: faMobileAlt, body: "I develop cross-platform mobile apps with Flutter and React Native, ensuring smooth performance and intuitive design." },
     ]
     return (
-        <section className="px-[4%] pt-8">
+        <section className="px-[4%] pt-8" id='skills'>
             <h2 className='font-montserrat text-3xl font-semibold text-primary'>My Skills</h2>
             <div className='dfAc gap-4 pt-3 flex-wrap'>
                 {skills.map((skill, index) => (

@@ -69,7 +69,7 @@ const Project = (): React.JSX.Element => {
 
     ]
     return (
-        <section className='pt-24 px-[4%] pb-6'>
+        <section className='pt-28 px-[4%] pb-6'>
             <h1 className='font-montserrat text-3xl font-semibold text-primary'>Projects</h1>
             <div className="dfAc flex-wrap gap-x-6 gap-y-8 pt-6">
                 {projects.map((v, i) =>
@@ -88,7 +88,7 @@ const Project = (): React.JSX.Element => {
 
                 ))}
             </div>
-
+        
         </section>
     )
 }

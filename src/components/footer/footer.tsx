@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitter, faWhatsapp, IconDefinition } from '@fortawesome/free-brands-svg-icons';
-const footer = ():React.JSX.Element => {
+const Footer = ():React.JSX.Element => {
     const icons:{icon:IconDefinition,link:string}[] = [
     {
         icon:faWhatsapp,link:"" 
@@ -17,13 +17,13 @@ const footer = ():React.JSX.Element => {
       },
 ]
   return (
-<section className='dfAc gap-4'>
+<section className='dfAc gap-4 pt-6 pb-4'>
     {icons.map((v,i)=>(
-<a href={v.link} key={i} target='_blank'><FontAwesomeIcon icon={v.icon} className='text-3xl text-primary'/></a>
+<a href={v.link} key={i} target='_blank'><FontAwesomeIcon icon={v.icon} className='text-4xl text-primary'/></a>
     ))}
 
 </section>
 )
 }
 
-export default footer
+export default Footer

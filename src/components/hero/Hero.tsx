@@ -17,7 +17,7 @@ const hero = ():React.JSX.Element => {
             </div>
             <div className="image flex-[1_1_40%] bg-white dfAc max-mdLap:order-1 flex-shrink">
                 <picture>
-                    <img src={profImg} alt="profile image" className='h-[20rem] max-mdLap:h-[15rem] ' />
+                    <img src={profImg} alt="profile image" className='h-[18rem] max-mdLap:h-[15rem] ' />
                 </picture>
             </div>
         </main>
