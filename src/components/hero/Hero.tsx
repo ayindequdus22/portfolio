@@ -6,7 +6,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons'
 const hero = ():React.JSX.Element => {
     // max-mdLap:pt-20 h-[80vh]  max-mdLap:h-[90vh] max-tab:h-[95vh] max-mdPhone:h-[100vh]
     return (
-        <div className='px-[10%] dfAc bg-[#F8F9FA]  gap-4 max-mdLap:flex-col  max-mdLap:pt-20 h-[80vh]  max-mdLap:h-auto max-tab:h-auto max-mdPhone:h-auto max-mdLap:pb-16'>
+        <main className='px-[10%] dfAc bg-[#F8F9FA]  gap-4 max-mdLap:flex-col  max-mdLap:pt-20 h-[80vh]  max-mdLap:h-auto max-tab:h-auto max-mdPhone:h-auto max-mdLap:pb-16'>
             <div className="details flex-[1_1_60%] max-mdLap:order-2 ">
                 <h1 className='text-3xl font-semibold '>Hi! I'm <span className='font-bold text-4xl text-primary font-montserrat'>Opeyemi Ayinde</span></h1>
                 
@@ -22,7 +22,7 @@ const hero = ():React.JSX.Element => {
                     <img src={profImg} alt="profile image" className='h-[20rem] max-mdLap:h-[15rem] ' />
                 </picture>
             </div>
-        </div>
+        </main>
     )
 }
 

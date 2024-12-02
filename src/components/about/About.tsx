@@ -1,6 +1,6 @@
 import React from 'react'
 
-const About = () => {
+const About = ():React.JSX.Element   => {
   return (
     <div className='py-4'>About</div>
   )
