@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
 const hero = ():React.JSX.Element => {
     return (
-        <main className='px-[10%] dfAc bg-[#F8F9FA]  gap-4 max-mdLap:flex-col  max-mdLap:pt-20 h-[80vh]  max-mdLap:h-auto max-tab:h-auto max-mdPhone:h-auto max-mdLap:pb-16'>
+        <main className='px-[10%] dfAc bg-[#F8F9FA]  gap-4 max-mdLap:flex-col max-phone:pt-32  max-mdLap:pt-20 h-[80vh]  max-mdLap:h-auto max-tab:h-auto max-mdPhone:h-auto max-mdLap:pb-16'>
             <div className="details flex-[1_1_60%] max-mdLap:order-2 ">
                 <h1 className='text-3xl font-semibold '>Hi! I'm <span className='font-bold text-4xl text-primary font-montserrat'>Opeyemi Ayinde</span></h1>
                 

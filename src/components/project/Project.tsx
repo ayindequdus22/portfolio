@@ -76,9 +76,9 @@ const Project = (): React.JSX.Element => {
                 (
                     <div key={i} className='bg-[#F8F9FA] w-96 rounded-md overflow-hidden shadow-md'>
                         <div className="image">
-                            <img src={v.img} alt={v.heading} className='w-96' />
+                            <img src={v.img} alt={v.heading} loading='lazy' className='w-96' />
                         </div>
-                        <div className="details py-3 px-4 h-52">
+                        <div className="details py-3 px-4 h-52 max-phone:h-60">
                             <h6 className='text-xl font-montserrat font-semibold'>{v.heading}</h6>
                             <p className='text-base  pt-2'>{v.details}</p>
                             <Link to={v.link}  target='_blank' className='btn px-6 inline-block py-2 mt-3 text-base'>Visit site</Link>
