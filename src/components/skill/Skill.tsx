@@ -1,6 +1,5 @@
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
 import { faDatabase, faLaptopCode, faMobileAlt,  } from '@fortawesome/free-solid-svg-icons'
-// import { faDashboard } from '@fortawesome/free-solid-svg-icons/faDashboard'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 

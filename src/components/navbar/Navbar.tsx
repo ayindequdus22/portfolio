@@ -9,7 +9,7 @@ const Navbar = (): React.JSX.Element => {
                 <Link to="">An-teqs</Link>
                 <div className="dfAc gap-8 max-tab:hidden">
                     <Link className='font-montserrat text-xl text-primary' to={"/"}>Home</Link>
-                    <Link className='font-montserrat text-xl text-primary' to={""}>About</Link>
+                    <Link className='font-montserrat text-xl text-primary' to={"about"}>About</Link>
                     <Link className='font-montserrat text-xl text-primary' to={""}>Skills</Link>
                     <Link className='font-montserrat text-xl text-primary' to={"projects"}>Projects</Link>
                 </div>
