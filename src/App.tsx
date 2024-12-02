@@ -6,6 +6,7 @@ import Project from './components/project/Project'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import Home from './Home'
 import About from './components/about/About'
+import Footer from './components/myfooter/Footer'
 
 function App() {
   const router = createBrowserRouter([{
@@ -13,6 +14,7 @@ function App() {
     element: <>
       <Navbar />
       <Outlet />
+      <Footer/>
     </>,
     children: [
       { path: '', element: <Home /> },
