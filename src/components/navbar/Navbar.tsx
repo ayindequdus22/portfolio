@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Navbar = () => {
+const Navbar = ():React.JSX.Element => {
     const links:string[] = [
         "Home","About","Skills","Projects",
         ]

@@ -1,8 +1,9 @@
 import React from 'react'
+
 import profImg from "../../assets/profile-removebg-preview.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
-const hero = () => {
+const hero = ():React.JSX.Element => {
     // max-mdLap:pt-20 h-[80vh]  max-mdLap:h-[90vh] max-tab:h-[95vh] max-mdPhone:h-[100vh]
     return (
         <div className='px-[10%] dfAc bg-[#F8F9FA]  gap-4 max-mdLap:flex-col  max-mdLap:pt-20 h-[80vh]  max-mdLap:h-auto max-tab:h-auto max-mdPhone:h-auto max-mdLap:pb-16'>
