@@ -1,5 +1,5 @@
 import React from 'react'
-
+import me from "../../../public/Opeyemi.pdf"
 import profImg from "../../assets/profile-removebg-preview.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
@@ -11,7 +11,7 @@ const hero = ():React.JSX.Element => {
                 
                 <p className='text-base leading-[1.8] pt-3 pb-4'>
                 Software Developer with 3+ years of experience in building responsive, scalable applications. Skilled in React, React Native, Flutter, Node.js, Redux, JavaScript, MongoDB, MySQL, Passport.js, JWT, and UI/UX design.</p>
-               <a download="resume.docx" href={"../../assets/myresume.docx"}> <button className='btn font-montserrat font-semibold text-xl border-2 w-60 h-14'> RESUME
+               <a  href={"/Opeyemi.pdf"} target="_blank" rel="noopener noreferrer"> <button className='btn font-montserrat font-semibold text-xl border-2 w-60 h-14'> RESUME
                     <FontAwesomeIcon icon={faDownload}className='pl-2' />
                 </button></a>
             </div>
