@@ -1,5 +1,4 @@
 import React from 'react'
-import me from "../../../public/Opeyemi.pdf"
 import profImg from "../../assets/profile-removebg-preview.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
