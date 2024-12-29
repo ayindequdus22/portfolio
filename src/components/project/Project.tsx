@@ -13,9 +13,7 @@ import useMyQuery, { ProjectsResponseType } from '../../useQuery'
 const Project = (): React.JSX.Element => {
 
     const { data } = useMyQuery<ProjectsResponseType>("/projects/");
-    console.log(data?.map((v: any) => {
-        console.log(v)
-    }))
+
     const projects: { img: string, heading: string, link: string, details: string }[] = [
 
         {
@@ -87,7 +85,7 @@ const Project = (): React.JSX.Element => {
                         <div className="details py-3 px-4 h-52 max-phone:h-60">
                             <h6 className='text-xl font-montserrat font-semibold'>{v?.title}</h6>
                             <p className='text-base  pt-2'>{v.ldescription}</p>
-                            <Link to={`/project/${v?.id}`} className='btn px-6 inline-block py-2 mt-3 text-base'>View Details</Link>
+                            <Link to={`/projects/${v?.id}`} className='btn px-6 inline-block py-2 mt-3 text-base'>View Details</Link>
                         </div>
                     </div>
 

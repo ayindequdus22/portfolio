@@ -17,31 +17,35 @@ function App() {
     element: <>
       <Navbar />
       <Outlet />
-      <Footer/>
+      <Footer />
     </>,
     children: [
       { path: '', element: <Home /> },
       { path: 'projects', element: <Project /> },
-     {path:"projects/id",element:<SProject/>}
+      { path: "projects/:id", element: <SProject /> }
     ]
 
   },
-   { path: 'about', element: <>
-  <Navbar/>
-   <About />
-   </> },
-      { path: 'contact-me', element: <>
-        <Navbar/>
-         <Contact />
-         </> },
-])
-const queryClient =  new QueryClient();
+  {
+    path: 'about', element: <>
+      <Navbar />
+      <About />
+    </>
+  },
+  {
+    path: 'contact-me', element: <>
+      <Navbar />
+      <Contact />
+    </>,
+  },
+  ])
+
+  const queryClient = new QueryClient();
   return (
-    <><QueryClientProvider client={queryClient} >
-
-
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <>
+      <QueryClientProvider client={queryClient} >
+        <RouterProvider router={router} />
+      </QueryClientProvider>
 
     </>
   )
