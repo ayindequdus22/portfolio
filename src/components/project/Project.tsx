@@ -13,7 +13,9 @@ import useMyQuery, { ProjectsResponseType } from '../../useQuery'
 const Project = (): React.JSX.Element => {
 
     const { data } = useMyQuery<ProjectsResponseType>("/projects/");
-
+    console.log(data?.map((v: any) => {
+        console.log(v)
+    }))
     const projects: { img: string, heading: string, link: string, details: string }[] = [
 
         {
