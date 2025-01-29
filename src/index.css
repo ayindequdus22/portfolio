@@ -5,7 +5,7 @@
 
 @layer base {
   html {
-    @apply text-[62.5%] font-roboto text-base overflow-x-hidden;
+    @apply text-[62.5%] font-roboto text-base  overflow-x-hidden;
 
   }
   body{

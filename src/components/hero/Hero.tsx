@@ -10,7 +10,7 @@ const hero = ():React.JSX.Element => {
                 
                 <p className='text-base leading-[1.8] pt-3 pb-4'>
                 Software Developer with 3+ years of experience in building responsive, scalable applications. Skilled in React, React Native, Flutter,Next.js, Node.js, Redux, JavaScript, MongoDB, MySQL, Passport.js, JWT, and UI/UX design.</p>
-               <a  href={"/Opeyemi.pdf"} target="_blank" rel="noopener noreferrer"> <button className='btn font-montserrat font-semibold text-xl border-2 w-60 h-14'> RESUME
+               <a  href={"https://docs.google.com/document/d/1iJ9zQFpN5CJZzMMgJH5IAK3BVQXfbMwdRBOAHulOMCM/edit?usp=sharing"} target="_blank" rel="noopener noreferrer"> <button className='btn font-montserrat font-semibold text-xl border-2 w-60 h-14'> RESUME
                     <FontAwesomeIcon icon={faDownload}className='pl-2' />
                 </button></a>
             </div>
