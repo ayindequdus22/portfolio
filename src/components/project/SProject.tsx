@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useMyQuery from '../../useQuery';
+import ReactPlayer from 'react-player'
+import FadeLoader from "react-spinners/FadeLoader"
 
 const SProject = (): React.JSX.Element => {
     type projectType = {
@@ -11,13 +13,38 @@ const SProject = (): React.JSX.Element => {
         video: string,
         ldescription: string,
         bdescription: string
-    }
+    }[]
     const { id } = useParams();
-    const { data } = useMyQuery<projectType>(`/projects/${id}`);
-    console.log(data);
+    const { data, isLoading } = useMyQuery<projectType>(`/projects/${id}`);
+    const newData = data?.[0];
+
+
 
     return (
-        <div>SProject</div>
+
+        <div className='pt-20   df-fldc'>
+            {
+                !isLoading ? <div className="container">
+                    {newData?.id}
+                    <ReactPlayer
+                        url={newData?.video}
+                        playing={true}
+                        controls={true}
+                        width="80%"
+                        height="auto"
+                        loop={true}
+                        muted={false}
+                    />    <h5>{newData?.title}</h5>
+                </div>
+                    : <>
+                    <div className='h-[90vh]'>
+                             <FadeLoader color='#007BFF' />
+                    </div>
+                   
+                    </>
+            }
+
+        </div>
     )
 }
 
