@@ -9,7 +9,7 @@
 
   }
   body{
-    @apply  text-mytext
+    @apply  text-mytext dark:bg-[rgb(10,10,10)] dark:text-[#ededed]
   }
 }
 
@@ -28,7 +28,7 @@
 
 @layer components {
    .btn{
-   @apply border-primary border text-primary rounded-md bg-white hover:bg-primary hover:text-white ease-linear duration-300 font-montserrat
+   @apply border-primary border text-primary rounded-md bg-white hover:bg-primary hover:text-white ease-linear duration-300 font-montserrat 
    } 
     .dfAc {
         @apply flex items-center justify-center;

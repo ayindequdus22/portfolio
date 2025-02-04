@@ -17,9 +17,9 @@ return ()=> window.removeEventListener("scroll",()=>setShow(false));
   })
     return (
         <>
-            <nav className="df-jsb-ac px-[4%] py-6 bg-white fixed w-full shadow-md">
+            <nav className="df-jsb-ac px-[4%] py-6 bg-[rgb(10,10,10)] fixed w-full shadow-md">
                 <Link to="">An-teqs</Link>
-                <div className={`dfAc gap-8 max-tab:df-fldc-ac max-tab:absolute right-0 bg-white max-tab:w-full transition-all duration-300 ease-in-out max-tab:pt-2 max-tab:pb-4 ${show ? "max-tab:top-16": "max-tab:top-[-150rem]"} `}>
+                <div className={`dfAc gap-8 max-tab:df-fldc-ac max-tab:absolute right-0  max-tab:w-full transition-all duration-300 ease-in-out max-tab:pt-2 max-tab:pb-4 ${show ? "max-tab:top-16": "max-tab:top-[-150rem]"} `}>
                     <Link className='font-montserrat text-xl text-primary' to={"/"}>Home</Link>
                     <Link className='font-montserrat text-xl text-primary' to={"/about"}>About</Link>
                     <a className='font-montserrat text-xl text-primary' href={"/#skills"}>Skills</a>
