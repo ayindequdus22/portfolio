@@ -9,7 +9,7 @@
 
   }
   body{
-    @apply  text-mytext dark:bg-[rgb(10,10,10)] dark:text-[#ededed]
+    @apply  text-mytext dark:bg-[rgb(18,18,18)] dark:text-[#ededed]
   }
 }
 
@@ -27,9 +27,17 @@
 @tailwind utilities;
 
 @layer components {
-   .btn{
-   @apply border-primary border text-primary rounded-md bg-white hover:bg-primary hover:text-white ease-linear duration-300 font-montserrat 
+   .btn{ 
+    border:1px solid rgb(56, 56, 56);
+   @apply rounded-md bg-[rgba(40,40,40,1)] shadow-[0_0_4px_rgba(35,35,35,1)] hover:bg-[rgb(32,32,32)] hover:text-primary
+   hover:tracking-wider    
+ 
+   
+   ease-linear duration-300 font-montserrat 
    } 
+   .nav-items{
+   @apply font-montserrat text-xl text-[rgb(214,214,214)] hover:text-[rgb(150,150,150)]   ease-linear duration-150
+   }
     .dfAc {
         @apply flex items-center justify-center;
     }

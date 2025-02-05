@@ -38,7 +38,7 @@ const SProject = (): React.JSX.Element => {
                         muted={videoState.muted}
                     />   
 
-                    <div className="details p-5 py-4  bg-slate-200 mt-2 mx-8 rounded-md">
+                    <div className="details p-5 py-4  bg-[rgb(32,32,34)] mt-2 mx-8 rounded-md">
                         <h6 className='font-semibold text-xl'>{newData?.title}</h6>
 <p className='pt-1 pb-3'>{newData?.bdescription}</p>
 <p>View Demo: <a href={newData?.link} className='text-blue-600' target="_blank" rel="noopener noreferrer">{newData?.link}</a></p>

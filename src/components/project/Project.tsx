@@ -14,7 +14,7 @@ const Project = (): React.JSX.Element => {
                 ? (<div className="dfAc flex-wrap gap-x-6 gap-y-8 pt-6">
                     {data?.map((v: any) =>
                     (
-                        <div key={v?.id} className='bg-[#F8F9FA] w-96 rounded-md overflow-hidden shadow-md'>
+                        <div key={v?.id} className='bg-[rgb(32,32,34)] w-96 rounded-md overflow-hidden shadow-md'>
                             <div className="image">
                                 <img src={v?.image} alt={v?.title} loading='lazy' className='w-96' />
                             </div>

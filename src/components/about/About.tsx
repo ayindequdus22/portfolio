@@ -1,9 +1,9 @@
 import React from 'react'
 import profImg from "../../assets/profile-removebg-preview.png"
-
+// bg-[#F8F9FA]
 const About = ():React.JSX.Element   => {
   return (
-    <main className='px-[10%] dfAc bg-[#F8F9FA]  gap-4 max-mdLap:flex-col  max-mdLap:pt-32 h-[100vh]  max-mdPhone:h-[102vh] max-mdLap:pb-16'>
+    <main className='px-[10%] dfAc  bg-[#2a2a2a]   gap-4 max-mdLap:flex-col  max-mdLap:pt-32 h-[100vh]  max-mdPhone:h-[102vh] max-mdLap:pb-16'>
             <div className="details  max-mdLap:pt-4 flex-[1_1_60%] max-mdLap:order-2 ">
 <h1 className='text-5xl font-semibold  text-primary font-montserrat pb-2'>About Me</h1>
 <p className='text-lg font-medium max-mdPhone:text-base'>
