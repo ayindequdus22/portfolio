@@ -15,13 +15,13 @@ const SProject = (): React.JSX.Element => {
         bdescription: string
     }[]
     const { id } = useParams();
-    const { data, isLoading } = useMyQuery<projectType>(`/projects/${id}`);
+    const { data, isLoading} = useMyQuery<projectType>(`/projects/${id}`);
     const newData = data?.[0];
     const [videoState, setVideoState] = useState<{ play: boolean; muted: boolean; }>({ play: false, muted: true })
     useEffect(() => {
         setVideoState({ muted: false, play: true });
-    },[])
-
+    }, [])
+    // const isLoading = true;
     return (
 
         <div className='pt-[4.8rem]'>
@@ -36,20 +36,19 @@ const SProject = (): React.JSX.Element => {
                         height="60vh"
                         loop={true}
                         muted={videoState.muted}
-                    />   
+                    />
 
                     <div className="details p-5 py-4  bg-[rgb(32,32,34)] mt-2 mx-8 rounded-md">
                         <h6 className='font-semibold text-xl'>{newData?.title}</h6>
-<p className='pt-1 pb-3'>{newData?.bdescription}</p>
-<p>View Demo: <a href={newData?.link} className='text-blue-600' target="_blank" rel="noopener noreferrer">{newData?.link}</a></p>
+                        <p className='pt-1 pb-3'>{newData?.bdescription}</p>
+                        <p>View Demo: <a href={newData?.link} className='text-blue-600' target="_blank" rel="noopener noreferrer">{newData?.link}</a></p>
                     </div>
                 </div>
-                    : <>
-                        <div className='h-[90vh]'>
+                    : (
+                        <div className='h-[90vh] dfAc'>
                             <FadeLoader color='#007BFF' />
                         </div>
-
-                    </>
+)
             }
 
         </div>

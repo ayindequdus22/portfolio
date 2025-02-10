@@ -10,7 +10,9 @@ import Footer from './components/myfooter/Footer'
 import Contact from './components/contact/Contact'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import SProject from './components/project/SProject'
-
+  import gsap from 'gsap'
+  import { useGSAP } from '@gsap/react'
+  gsap.registerPlugin(useGSAP);
 function App() {
   const router = createBrowserRouter([{
     path: "/",

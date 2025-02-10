@@ -2,11 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import useMyQuery, { ProjectsResponseType } from '../../useQuery'
+import FadeLoader from 'react-spinners/FadeLoader';
 
 const Project = (): React.JSX.Element => {
 
     const { data, isLoading } = useMyQuery<ProjectsResponseType>("/projects");
-    console.log(data)
+
     return (
         <section className='pt-28 px-[4%] pb-6'>
             <h1 className='font-montserrat text-3xl font-semibold text-primary'>Projects</h1>
@@ -27,10 +28,12 @@ const Project = (): React.JSX.Element => {
 
 
                     ))}
-                </div>) : (
-                    <>
-                        Loading</>
-                )}
+                </div>) :(
+                        <div className='h-[90vh] dfAc'>
+                            <FadeLoader color='#007BFF' />
+                        </div>
+)
+       }
 
         </section>
     )

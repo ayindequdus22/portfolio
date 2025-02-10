@@ -4,22 +4,22 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply text-[62.5%] font-roboto text-base  overflow-x-hidden;
+    html {
+        @apply text-[62.5%] font-roboto text-base overflow-x-hidden;
 
-  }
-  body{
-    @apply  text-mytext dark:bg-[rgb(18,18,18)] dark:text-[#ededed]
-  }
+    }
+    body {
+        @apply text-mytext dark:bg-[rgb(18,18,18)] dark:text-[#ededed]
+    }
 }
 
 :root {
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
-  @apply p-0 m-0 box-border;
+    @apply p-0 m-0 box-border;
 }
 
 
@@ -27,17 +27,15 @@
 @tailwind utilities;
 
 @layer components {
-   .btn{ 
-    border:1px solid rgb(56, 56, 56);
-   @apply rounded-md bg-[rgba(40,40,40,1)] shadow-[0_0_4px_rgba(35,35,35,1)] hover:bg-[rgb(32,32,32)] hover:text-primary
-   hover:tracking-wider    
- 
-   
-   ease-linear duration-300 font-montserrat 
-   } 
-   .nav-items{
-   @apply font-montserrat text-xl text-[rgb(214,214,214)] hover:text-[rgb(150,150,150)]   ease-linear duration-150
-   }
+    .btn {
+        border: 1px solid rgb(56, 56, 56);
+        @apply rounded-md bg-[rgba(40,40,40,1)] shadow-[0_0_4px_rgba(35,35,35,1)] hover:bg-[rgb(32,32,32)] hover:text-primary hover:tracking-wider ease-linear duration-300 font-montserrat
+    }
+
+    .nav-items {
+        @apply font-montserrat text-xl text-[rgb(214,214,214)] hover:text-[rgb(150,150,150)] ease-linear duration-150
+    }
+
     .dfAc {
         @apply flex items-center justify-center;
     }
