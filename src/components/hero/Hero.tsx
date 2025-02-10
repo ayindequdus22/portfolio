@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import profImg from "../../assets/profile-removebg-preview.png"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TypeAnimation } from 'react-type-animation';
@@ -6,27 +6,30 @@ import gsap from 'gsap';
 import { useGSAP, } from "@gsap/react"
 import { faDownload } from '@fortawesome/free-solid-svg-icons'
 // bg-[#F8F9FA]  bg-white
+gsap.registerPlugin(useGSAP);
 const hero = (): React.JSX.Element => {
-    // gsap.registerPlugin(useGSAP);
 
     const imageRef = useRef<HTMLImageElement | null>(null);
     const detailsRef = useRef<HTMLDivElement | null>(null);
+    useEffect(()=>{})
     useGSAP(() => {
         gsap.fromTo(imageRef.current, { x: 400, opacity: 0.3 }, { x: 0, opacity: 1, duration: 2 });
-        let tl = gsap.timeline()
-       tl.fromTo("#heroHeaderText",{
-            x:"-40rem" ,opacity:0.3,
-        },{  x:"0",opacity:1,duration:1,stagger:0.2 }).fromTo("#heroDetails",{
-            x:"-60rem",opacity:0.4
-        },{
-              x:"0",duration:1,stagger:0.2,opacity:1 
-        }).fromTo("#heroBtn",{
-            x:"-80rem",opacity:0.4
-        },{
-            x:"0",duration:1,stagger:0.2,opacity:1  
-        })
+        let tl = gsap.timeline();
 
-    })
+        tl.fromTo("#heroHeaderText", 
+          { x: "-100vw", opacity: 0.3 }, 
+          { x: "0", opacity: 1, duration: 1 }
+        )
+        .fromTo("#heroDetails", 
+          { x: "-100vw", opacity: 0.4 }, 
+          { x: "0", opacity: 1, duration: 1 }
+        )
+        .fromTo("#heroBtn", 
+          { x: "-100vw", opacity: 0.4 }, 
+          { x: "0", opacity: 1, duration: 1 }
+        );
+        
+    });
     return (
         <main className='px-[10%] dfAc bg-[#2a2a2a]  gap-4 max-mdLap:flex-col max-phone:pt-32  max-mdLap:pt-20 h-[80vh]  max-mdLap:h-auto max-tab:h-auto max-mdPhone:h-auto max-mdLap:pb-16'>
             <div className="details flex-[1_1_60%] max-mdLap:order-2 " ref={detailsRef}>

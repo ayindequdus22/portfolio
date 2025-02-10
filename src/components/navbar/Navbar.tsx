@@ -19,7 +19,7 @@ const Navbar = (): React.JSX.Element => {
     <>
       <nav className="df-jsb-ac z-40 px-[4%] py-6 bg-[rgba(40,40,40,1)] fixed w-full shadow-md">
         <Link to="">An-teqs</Link>
-        <div className={`dfAc gap-8 max-tab:df-fldc-ac max-tab:absolute right-0  max-tab:w-full transition-all duration-300 ease-in-out max-tab:pt-2 max-tab:pb-4 ${show ? "max-tab:top-16" : "max-tab:top-[-150rem]"} `}>
+        <div className={`dfAc gap-8 max-tab:df-fldc-ac max-tab:absolute max-tab:bg-[rgba(40,40,40,1)]  right-0  max-tab:w-full transition-all duration-300 ease-in-out max-tab:pt-2 max-tab:pb-4 ${show ? "max-tab:top-16" : "max-tab:top-[-150rem]"} `}>
           <Link className='nav-items' to={"/"}>Home</Link>
           <Link className='nav-items' to={"/about"}>About</Link>
           <a className='nav-items' href={"/#skills"}>Skills</a>
