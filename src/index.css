@@ -9,7 +9,7 @@
 
     }
     body {
-        @apply text-mytext dark:bg-[rgb(18,18,18)] dark:text-[#ededed]
+        @apply text-mytext bg-[rgb(18,18,18)] text-[#ededed]
     }
 }
 

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useMyQuery from '../../useQuery';
 import ReactPlayer from 'react-player'
-import FadeLoader from "react-spinners/FadeLoader"
 
 const SProject = (): React.JSX.Element => {
     type projectType = {
@@ -46,7 +45,7 @@ const SProject = (): React.JSX.Element => {
                 </div>
                     : (
                         <div className='h-[90vh] dfAc'>
-                            <FadeLoader color='#007BFF' />
+                         Loader
                         </div>
 )
             }

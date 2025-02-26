@@ -2,7 +2,6 @@ import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 import useMyQuery, { ProjectsResponseType } from '../../useQuery'
-import FadeLoader from 'react-spinners/FadeLoader';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
@@ -10,7 +9,8 @@ gsap.registerPlugin(ScrollTrigger);
 const Project = (): React.JSX.Element => {
     const projectRef = useRef<HTMLDivElement | null>(null);
 
-    const { data, isLoading } = useMyQuery<ProjectsResponseType>("/projects");
+    const { data, } = useMyQuery<ProjectsResponseType>("/projects");
+    const isLoading = true;
     useGSAP(() => {
         if (!isLoading && projectRef.current) {
             gsap.fromTo(
@@ -21,7 +21,7 @@ const Project = (): React.JSX.Element => {
                 }
             );
         }
-        }, [isLoading, data]);
+    }, [isLoading, data]);
 
     return (
         <section className='pt-28 px-[4%] pb-6'>
@@ -44,8 +44,35 @@ const Project = (): React.JSX.Element => {
 
                     ))}
                 </div>) : (
-                    <div className='h-[90vh] dfAc'>
-                        <FadeLoader color='#007BFF' />
+                    <div className="dfAc  flex-wrap gap-x-6 gap-y-8 pt-6">
+                        {Array.from({ length: 9 }).map((_, index) => (
+                            <div key={index} className="animate-pulse bg-[rgb(32,32,34)] w-96 rounded-md overflow-hidden shadow-md">
+                                {/* Image Placeholder */}
+                                <div className="flex items-center justify-center h-44 w-96 bg-gray-300">
+                                    <svg className="w-10 h-10  text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                                        <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+                                    </svg>
+                                </div>
+
+                                {/* details */}
+                                <div className="details  py-3 px-4 h-52 ">
+                                    {/* Title Placeholder h6 */}
+                                    <div className="h-8 w-5/12  bg-gray-300 rounded" />
+
+                                    {/* Description Placeholder p */}
+                                    <div className="pt-4 space-y-2">
+                                        <div className="h-5 bg-gray-300 rounded" />
+                                        <div className="h-5  bg-gray-300 rounded" />
+                                        <div className="h-5  bg-gray-300 rounded" />
+                                    </div>
+
+
+                                    {/* Button Placeholder */}
+                                    <div className="h-10 w-1/3  mt-3 bg-gray-300 rounded" />
+                                </div>
+
+                            </div>
+                        ))}
                     </div>
                 )
             }
