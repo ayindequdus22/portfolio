@@ -9,8 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Project = (): React.JSX.Element => {
     const projectRef = useRef<HTMLDivElement | null>(null);
 
-    const { data, } = useMyQuery<ProjectsResponseType>("/projects");
-    const isLoading = true;
+    const { data, isLoading } = useMyQuery<ProjectsResponseType>("/projects");
     useGSAP(() => {
         if (!isLoading && projectRef.current) {
             gsap.fromTo(
@@ -32,7 +31,7 @@ const Project = (): React.JSX.Element => {
                     (
                         <div key={v?.id} className='indigo bg-[rgb(32,32,34)] w-96 rounded-md overflow-hidden shadow-md'>
                             <div className="image">
-                                <img src={v?.image} alt={v?.title} loading='lazy' className='w-96' />
+                                <img src={v?.image} alt={v?.title} loading='lazy' className='w-96'  />
                             </div>
                             <div className="details py-3 px-4 h-52 max-phone:h-[16rem]">
                                 <h6 className='text-xl font-montserrat font-semibold'>{v?.title}</h6>
