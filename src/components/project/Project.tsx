@@ -34,9 +34,9 @@ const Project = (): React.JSX.Element => {
                             <div className="image">
                                 <img src={v?.image} alt={v?.title} loading='lazy' className='w-96' />
                             </div>
-                            <div className="details py-3 px-4 h-52 max-phone:h-60">
+                            <div className="details py-3 px-4 h-52 max-phone:h-[16rem]">
                                 <h6 className='text-xl font-montserrat font-semibold'>{v?.title}</h6>
-                                <p className='text-base  pt-2'>{v.ldescription}</p>
+                                <p className='text-base   pt-2'>{v.ldescription}</p>
                                 <Link to={`/projects/${v?.id}`} className='btn px-6 inline-block py-2 mt-3 text-base'>View Details</Link>
                             </div>
                         </div>

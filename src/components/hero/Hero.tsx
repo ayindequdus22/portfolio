@@ -51,7 +51,7 @@ const hero = (): React.JSX.Element => {
                 <p className='text-base leading-[1.8] pt-3 pb-4' id='heroDetails'>
                     Software Developer with 3+ years of experience in building responsive, scalable applications. Skilled in React, React Native, Flutter,Next.js, Node.js, Redux, JavaScript, MongoDB, MySQL, Passport.js, JWT, and UI/UX design.</p>
                 <a className='btn  block leading-[3.5rem] dfAc text-center font-montserrat font-semibold text-xl border-2 w-60 ' id='heroBtn'
-                 href={"https://docs.google.com/document/d/1iJ9zQFpN5CJZzMMgJH5IAK3BVQXfbMwdRBOAHulOMCM/edit?usp=sharing                 "} 
+                 href={"https://docs.google.com/document/d/1iJ9zQFpN5CJZzMMgJH5IAK3BVQXfbMwdRBOAHulOMCM/edit?usp=drive_link"} 
                  target="_blank" rel="noopener noreferrer"> 
                 RESUME
                     <FontAwesomeIcon icon={faDownload} className='pl-2' />
