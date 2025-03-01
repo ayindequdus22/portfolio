@@ -4,8 +4,9 @@ export type ProjectsResponseType = {
     id: number,
     title: string,
     image: string,
-    ldescription: string
-}[]
+    ldescription: string,
+    category: string
+}[];
 const useMyQuery = <T>(url: string) => useQuery({
     queryKey: ["queryProject"],
     queryFn: async () => {
