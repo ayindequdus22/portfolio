@@ -9,8 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Project = (): React.JSX.Element => {
     const projectRef = useRef<HTMLDivElement | null>(null);
 
-    const { data, isLoading } = useMyQuery<ProjectsResponseType>("/projects");
-    console.log(data)
+    const { data, isLoading } = useMyQuery<ProjectsResponseType>("/projects.json");
     useGSAP(() => {
         if (!isLoading && projectRef.current) {
             gsap.fromTo(

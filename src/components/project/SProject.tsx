@@ -14,8 +14,9 @@ const SProject = (): React.JSX.Element => {
         bdescription: string
     }[]
     const { id } = useParams();
-    const { data,isLoading } = useMyQuery<projectType>(`/projects/${id}`);
-    const newData = data?.[0];
+    
+    const { data, isLoading } = useMyQuery<projectType>(`/projects.json`);
+    const newData = data?.[`${id}`];
     const [videoState, setVideoState] = useState<{ play: boolean; muted: boolean; }>({ play: false, muted: true })
     useEffect(() => {
         setVideoState({ muted: false, play: true });
