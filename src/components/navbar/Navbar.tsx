@@ -22,7 +22,7 @@ const Navbar = (): React.JSX.Element => {
         <div className={`dfAc gap-8 max-tab:df-fldc-ac max-tab:absolute max-tab:bg-[rgba(40,40,40,1)]  right-0  max-tab:w-full transition-all duration-300 ease-in-out max-tab:pt-2 max-tab:pb-4 ${show ? "max-tab:top-16" : "max-tab:top-[-150rem]"} `}>
           <Link className='nav-items' to={"/"}>Home</Link>
           <Link className='nav-items' to={"/about"}>About</Link>
-          <a className='nav-items' href={"/#skills"}>Skills</a>
+          <a className='nav-items' href={"/experience"}>Experience</a>
           <Link className='nav-items' to={"/projects"}>Projects</Link>
         </div>
         <div>

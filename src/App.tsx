@@ -12,6 +12,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import SProject from './components/project/SProject'
   import gsap from 'gsap'
   import { useGSAP } from '@gsap/react'
+import Experience from './components/myfooter/experience/Experience'
   gsap.registerPlugin(useGSAP);
 function App() {
   const router = createBrowserRouter([{
@@ -32,6 +33,11 @@ function App() {
     path: 'about', element: <>
       <Navbar />
       <About />
+    </>
+  },  {
+    path: 'experience', element: <>
+      <Navbar />
+      <Experience />
     </>
   },
   {
