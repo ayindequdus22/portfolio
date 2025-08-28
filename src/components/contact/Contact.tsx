@@ -1,8 +1,40 @@
-import React from 'react'
+import React, { FormEvent, useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
 import { IoLogoGithub } from "react-icons/io5";
 import { IoLogoLinkedin } from "react-icons/io5";
+import { emailPublicKey, emailServiceId, emailTemplateId } from "./env-variable";
 
 const Contact = (): React.JSX.Element => {
+  console.log({ emailPublicKey, emailServiceId, emailTemplateId })
+  const form = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<string | null>(null);
+
+  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!form.current) return;
+
+    setLoading(true);
+    setStatus(null);
+
+    emailjs
+      .sendForm(emailServiceId, emailTemplateId, form.current, {
+        publicKey: emailPublicKey,
+      })
+      .then(
+        () => {
+          setStatus("✅ Message sent successfully!");
+          setLoading(false);
+          form.current?.reset();
+        },
+        (error) => {
+          setStatus("❌ Failed to send. Please try again.");
+          console.error(error.text);
+          setLoading(false);
+        }
+      );
+  };
+
   return (
     <section className='pt-28 px-40  max-mdLap:px-20 max-tab:px-12 max-mdPhone:px-4'>
 
@@ -38,6 +70,50 @@ const Contact = (): React.JSX.Element => {
 
 
       </div>
+
+
+      <form ref={form} onSubmit={sendEmail} className="mt-20 space-y-2">
+        <div>
+          <label className="block text-sm mb-1 text-gray-300">Name</label>
+          <input
+            required type="text"
+            name="name"
+            placeholder="John Doe"
+            className="w-full rounded-lg bg-[#26262A] px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        {/* Email */}
+        <div>
+          <label className="block text-sm mb-1 text-gray-300">Email</label>
+          <input
+            required type="email"
+            name="email"
+
+            placeholder="john.doe@example.com"
+            className="w-full rounded-lg bg-[#26262A] px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        {/* Message */}
+        <div>
+          <label className="block text-sm mb-1 text-gray-300">Message</label>
+          <textarea
+            name="message"
+            placeholder="Enter your message here"
+            rows={4}
+            className="w-full rounded-lg bg-[#26262A] px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          className="w-full bg-[#3A3A3F] hover:bg-[#4a4a52] text-white font-medium py-3 rounded-lg transition-colors"
+        >
+          Send Message
+        </button>
+      </form>
     </section>
   )
 }
