@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import useMyQuery from '../../useQuery';
 import ReactPlayer from 'react-player'
 import projects from "../../assets/projects.json";
-
+// type projectType = {
+    //     id: number,
+    //     link: string,
+    //     title: string,
+    //     image: string,
+    //     video: string,
+    //     ldescription: string,
+    //     bdescription: string
+    // }[]
 
 const SProject = (): React.JSX.Element => {
-    type projectType = {
-        id: number,
-        link: string,
-        title: string,
-        image: string,
-        video: string,
-        ldescription: string,
-        bdescription: string
-    }[]
     const { id } = useParams();
     console.log(id)
   const { data } = { data: projects };

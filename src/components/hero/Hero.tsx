@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import profImg from "../../assets/profile-removebg-preview.png"
+// import profImg from "../../assets/profile-removebg-preview.png"
 import { TypeAnimation } from 'react-type-animation';
 import gsap from 'gsap';
 import { useGSAP, } from "@gsap/react"
