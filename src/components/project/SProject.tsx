@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import useMyQuery from '../../useQuery';
 import ReactPlayer from 'react-player'
+import projects from "../../assets/projects.json";
+
 
 const SProject = (): React.JSX.Element => {
     type projectType = {
@@ -15,8 +17,14 @@ const SProject = (): React.JSX.Element => {
     }[]
     const { id } = useParams();
     console.log(id)
-    const { data, isLoading } = useMyQuery<projectType>(`/projects.json`);
-    const newData = data?.find(p => p.id === parseInt(id as string));
+  const { data } = { data: projects };
+      const [isLoading, setIsLoading] = useState(true); 
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 600); 
+     return () => clearTimeout(timer); 
+  }, []);
+      const newData = data?.find(p => p.id === parseInt(id as string));
     const [videoState, setVideoState] = useState<{ play: boolean; muted: boolean; }>({ play: false, muted: true })
     useEffect(() => {
         setVideoState({ muted: false, play: true });

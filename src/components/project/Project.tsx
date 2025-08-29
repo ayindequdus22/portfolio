@@ -1,15 +1,23 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+import projects from "../../assets/projects.json";
 
-import useMyQuery, { ProjectsResponseType } from '../../useQuery'
+
+
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 const Project = (): React.JSX.Element => {
     const projectRef = useRef<HTMLDivElement | null>(null);
+    const { data } = { data: projects };
+      const [isLoading, setIsLoading] = useState(true); 
 
-    const { data, isLoading } = useMyQuery<ProjectsResponseType>("/projects.json");
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 600); 
+     return () => clearTimeout(timer); 
+  }, []);
+
     useGSAP(() => {
         if (!isLoading && projectRef.current) {
             gsap.fromTo(

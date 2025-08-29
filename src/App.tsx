@@ -6,7 +6,7 @@ import Project from './components/project/Project'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import Home from './Home'
 import About from './components/about/About'
-import Footer from './components/myfooter/Footer'
+// import Footer from './components/myfooter/Footer'
 import Contact from './components/contact/Contact'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import SProject from './components/project/SProject'
@@ -20,7 +20,6 @@ function App() {
     element: <>
       <Navbar />
       <Outlet />
-      <Footer />
     </>,
     children: [
       { path: '', element: <Home /> },

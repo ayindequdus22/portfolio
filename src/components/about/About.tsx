@@ -2,6 +2,8 @@ import React, { useRef } from 'react'
 import profImg from "../../assets/profile-removebg-preview.png"
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // bg-[#F8F9FA]
 const About = (): React.JSX.Element => {
   const imageRef = useRef(null);
@@ -30,8 +32,14 @@ const About = (): React.JSX.Element => {
     <main className='px-[10%] dfAc  bg-[#2a2a2a]   gap-4 max-mdLap:flex-col  max-mdLap:pt-32 h-[100vh]  max-mdPhone:h-[102vh] max-mdLap:pb-16'>
       <div className="details  max-mdLap:pt-4 flex-[1_1_60%] max-mdLap:order-2 " ref={containerRef}>
         <h1 className='text-5xl font-semibold  text-primary font-montserrat pb-2'>About Me</h1>
-        <p className='text-lg font-medium max-mdPhone:text-base'>
+        <p className='font-roboto text-lg font-medium max-mdPhone:text-base'>
           I'm a passionate Software Developer with 3+ years of experience in building responsive and scalable web and mobile applications. Skilled in both front-end and back-end technologies like React, React Native, Express.js, Node.js, Flutter, MongoDB, and MySQL. I focus on solving problems, creating seamless user experiences, and continuously improving my skills.</p>
+      <a className='btn mt-4 block leading-[3.5rem] dfAc text-center font-montserrat font-semibold text-xl border-2 w-60 ' id='heroBtn'
+                 href={"https://docs.google.com/document/d/1iJ9zQFpN5CJZzMMgJH5IAK3BVQXfbMwdRBOAHulOMCM/edit?usp=drive_link"} 
+                 target="_blank" rel="noopener noreferrer"> 
+                RESUME
+                    <FontAwesomeIcon icon={faDownload} className='pl-2' />
+                </a>
       </div>
 
       <div ref={imageRef} className="image flex-[1_1_40%] bg-white dfAc max-mdLap:order-1 flex-shrink">
