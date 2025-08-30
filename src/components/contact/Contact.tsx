@@ -26,7 +26,7 @@ const Contact = (): React.JSX.Element => {
           setLoading(false);
           form.current?.reset();
         },
-        (error) => {
+        () => {
           setStatus("❌ Failed to send. Please try again.");
           setLoading(false);
         }
