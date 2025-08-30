@@ -5,7 +5,6 @@ import { IoLogoLinkedin } from "react-icons/io5";
 import { emailPublicKey, emailServiceId, emailTemplateId } from "./env-variable";
 import { LuLoaderCircle } from "react-icons/lu";
 const Contact = (): React.JSX.Element => {
-  console.log({ emailPublicKey, emailServiceId, emailTemplateId })
   const form = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<string | null>(null);
@@ -29,7 +28,6 @@ const Contact = (): React.JSX.Element => {
         },
         (error) => {
           setStatus("❌ Failed to send. Please try again.");
-          console.error(error.text);
           setLoading(false);
         }
       );

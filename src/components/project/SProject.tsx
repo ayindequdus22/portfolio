@@ -14,7 +14,7 @@ import projects from "../../assets/projects.json";
 
 const SProject = (): React.JSX.Element => {
     const { id } = useParams();
-    console.log(id)
+  
   const { data } = { data: projects };
       const [isLoading, setIsLoading] = useState(true); 
 
