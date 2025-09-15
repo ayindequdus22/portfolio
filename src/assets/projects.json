@@ -21,13 +21,13 @@
   },
   {
     "id": 3,
-      "link": "https://github.com/ayindequdus22/shoppe.git",
-    "title": "Shoppe",
-    "image": "http://res.cloudinary.com/dxoemtk19/image/upload/v1740823331/portfolio-assets/z3vycw5bbryet8vt0ydn.png",
-    "video": "http://res.cloudinary.com/dxoemtk19/video/upload/v1740823321/portfolio-assets/pis9rr29vrq8r0olac3a.mp4",
-    "ldescription": "A modern e-commerce app with secure authentication, a category carousel, and a dynamic home featuring flash deals with a countdown timer.",
-    "bdescription": "Experience seamless shopping with our modern e-commerce mobile app. Get started with a secure registration and login process with robust input validation to ensure smooth access. The app welcomes users with an interactive carousel showcasing different product categories, making browsing easy and intuitive. On the home page, discover exciting flash deals with a live countdown timer, ensuring you never miss out on great discounts. Browse through a wide range of products, all displayed in a user-friendly layout designed for an engaging shopping experience. Enjoy a sleek, responsive, and feature-rich app that makes online shopping effortless!",
-    "category": "mobile"
+    "link": "https://anteqs-carvan.netlify.app/",
+    "title": "Carvan",
+    "image": "http://res.cloudinary.com/dxoemtk19/image/upload/v1738165368/portfolio-assets/kmoydejce6qn0eshndvw.png",
+    "video": "http://res.cloudinary.com/dxoemtk19/video/upload/v1738165352/portfolio-assets/sghicaxgrlqgrlfpfind.mp4",
+    "ldescription": "Developed a car website using HTML, CSS, and jQuery, featuring Google Maps integration, filtering options, and smooth animations.",
+    "bdescription": "Developed a dynamic car website using HTML, CSS, and jQuery, featuring Google Maps integration, advanced filtering options, and smooth animations to enhance the user experience. The website allows users to effortlessly explore car listings with an interactive map, providing real-time location details for each vehicle. Multiple filtering options enable users to narrow down their search based on specific criteria such as make, model, price, and more. Smooth animations create seamless transitions between sections, offering a fluid and engaging browsing experience. The responsive design, built with HTML and CSS, ensures compatibility across devices, while jQuery optimizes functionality, making the website both visually appealing and easy to navigate.",
+    "category": "web"
   },
   {
     "id": 4,
@@ -71,12 +71,22 @@
   },
   {
     "id": 8,
-    "link": "https://anteqs-carvan.netlify.app/",
-    "title": "Carvan",
-    "image": "http://res.cloudinary.com/dxoemtk19/image/upload/v1738165368/portfolio-assets/kmoydejce6qn0eshndvw.png",
-    "video": "http://res.cloudinary.com/dxoemtk19/video/upload/v1738165352/portfolio-assets/sghicaxgrlqgrlfpfind.mp4",
-    "ldescription": "Developed a car website using HTML, CSS, and jQuery, featuring Google Maps integration, filtering options, and smooth animations.",
-    "bdescription": "Developed a dynamic car website using HTML, CSS, and jQuery, featuring Google Maps integration, advanced filtering options, and smooth animations to enhance the user experience. The website allows users to effortlessly explore car listings with an interactive map, providing real-time location details for each vehicle. Multiple filtering options enable users to narrow down their search based on specific criteria such as make, model, price, and more. Smooth animations create seamless transitions between sections, offering a fluid and engaging browsing experience. The responsive design, built with HTML and CSS, ensures compatibility across devices, while jQuery optimizes functionality, making the website both visually appealing and easy to navigate.",
-    "category": "web"
+    "link": "https://github.com/ayindequdus22/shoppe.git",
+    "title": "Shoppe",
+    "image": "http://res.cloudinary.com/dxoemtk19/image/upload/v1740823331/portfolio-assets/z3vycw5bbryet8vt0ydn.png",
+    "video": "http://res.cloudinary.com/dxoemtk19/video/upload/v1740823321/portfolio-assets/pis9rr29vrq8r0olac3a.mp4",
+    "ldescription": "A modern e-commerce app with secure authentication, a category carousel, and a dynamic home featuring flash deals with a countdown timer.",
+    "bdescription": "Experience seamless shopping with our modern e-commerce mobile app. Get started with a secure registration and login process with robust input validation to ensure smooth access. The app welcomes users with an interactive carousel showcasing different product categories, making browsing easy and intuitive. On the home page, discover exciting flash deals with a live countdown timer, ensuring you never miss out on great discounts. Browse through a wide range of products, all displayed in a user-friendly layout designed for an engaging shopping experience. Enjoy a sleek, responsive, and feature-rich app that makes online shopping effortless!",
+    "category": "mobile"
+  },
+  {
+    "id": 9,
+    "link": "https://github.com/ayindequdus22/Avenopay",
+    "title": "Avenopay",
+    "image": "https://res.cloudinary.com/dxoemtk19/image/upload/v1757934010/avenopay_image.png",
+    "video": "https://res.cloudinary.com/dxoemtk19/video/upload/v1757933969/avenopay-video.mp4",
+    "ldescription": "AvenoPay is a secure, high-performance financial app built with Flutter. It offers seamless cross-platform use, efficient network calls via Dio, and secure storage for sensitive data. Features include instant transfers, airtime purchases, and easy loan access—all in a safe, user-friendly interface.",
+    "bdescription": "AvenoPay is designed for speed, security, and everyday convenience. Built with Flutter, it offers smooth, consistent experiences across iOS and Android. Behind the scenes, Dio powers fast, reliable API calls, while flutter_secure_storage keeps sensitive data encrypted and safe. With AvenoPay, you can instantly send and receive money, recharge airtime and data across all major networks, and access short-term loans with a simple process. By combining cutting-edge technology with essential features, AvenoPay delivers a trustworthy, all-in-one financial solution.",
+    "category": null
   }
 ]
