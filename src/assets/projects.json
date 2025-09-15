@@ -85,8 +85,7 @@
     "title": "Avenopay",
     "image": "https://res.cloudinary.com/dxoemtk19/image/upload/v1757934010/avenopay_image.png",
     "video": "https://res.cloudinary.com/dxoemtk19/video/upload/v1757933969/avenopay-video.mp4",
-    "ldescription": "AvenoPay is a secure, high-performance financial app built with Flutter. It offers seamless cross-platform use, efficient network calls via Dio, and secure storage for sensitive data. Features include instant transfers, airtime purchases, and easy loan access—all in a safe, user-friendly interface.",
-    "bdescription": "AvenoPay is designed for speed, security, and everyday convenience. Built with Flutter, it offers smooth, consistent experiences across iOS and Android. Behind the scenes, Dio powers fast, reliable API calls, while flutter_secure_storage keeps sensitive data encrypted and safe. With AvenoPay, you can instantly send and receive money, recharge airtime and data across all major networks, and access short-term loans with a simple process. By combining cutting-edge technology with essential features, AvenoPay delivers a trustworthy, all-in-one financial solution.",
-    "category": null
+    "ldescription":"AvenoPay is a secure Flutter-based financial app with fast networking and encrypted storage, enabling instant transfers, airtime top-ups, and easy loan access.",    "bdescription": "AvenoPay is designed for speed, security, and everyday convenience. Built with Flutter, it offers smooth, consistent experiences across iOS and Android. Behind the scenes, Dio powers fast, reliable API calls, while flutter_secure_storage keeps sensitive data encrypted and safe. With AvenoPay, you can instantly send and receive money, recharge airtime and data across all major networks, and access short-term loans with a simple process. By combining cutting-edge technology with essential features, AvenoPay delivers a trustworthy, all-in-one financial solution.",
+    "category": "mobile"
   }
 ]
