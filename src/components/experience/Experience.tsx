@@ -7,7 +7,7 @@ const Experience = (): React.JSX.Element => {
             title: "Frontend Developer",
             company: "Nomad Technologies",
             type: "Full Time",
-            duration: "Jun 2025 - Aug 2025",
+            duration: "Jun 2025 - Nov 2025",
             responsibilities: [
                 "Collaborated with product designers and fellow developers to build and maintain core web applications supporting microfinance operations",
                 "Leveraged React, TypeScript, and Tailwind CSS to deliver scalable, maintainable frontend architecture",
@@ -27,8 +27,21 @@ const Experience = (): React.JSX.Element => {
                 "Applied hashing techniques to safeguard transactional details, reinforcing data privacy and platform security"
             ]
         },
+
         {
             id: 3,
+            type: "Contract",
+            company: "AvenoTrust",
+            duration: "Jun 2025",
+            title: "Flutter Developer",
+            responsibilities: [
+                "Developed and shipped features for a production-level fintech application using Flutter, working within an Agile team to deliver a polished product to thousands of users.",
+                "Orchestrated app-wide state management using GetX, creating a predictable and maintainable data flow for a complex financial application.",
+                "Integrated RESTful APIs using Dio, handling authentication, data fetching, and error handling for a seamless user experience."
+            ]
+        },
+        {
+            id: 4,
             title: "Frontend Developer",
             company: "EliteOceanic",
             type: "Contract",
@@ -40,7 +53,7 @@ const Experience = (): React.JSX.Element => {
             ]
         },
         {
-            id: 4,
+            id: 5,
             title: "Frontend Developer",
             company: "ADC Hackathon 2025 – Split-The-Cost",
             type: "Hackathon",
@@ -53,7 +66,7 @@ const Experience = (): React.JSX.Element => {
             ]
         },
         {
-            id: 5,
+            id: 6,
             title: "Backend Developer (Contract)",
             company: "Menubars",
             type: "Contract",
