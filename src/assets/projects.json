@@ -29,15 +29,15 @@
     "bdescription": "Developed a dynamic car website using HTML, CSS, and jQuery, featuring Google Maps integration, advanced filtering options, and smooth animations to enhance the user experience. The website allows users to effortlessly explore car listings with an interactive map, providing real-time location details for each vehicle. Multiple filtering options enable users to narrow down their search based on specific criteria such as make, model, price, and more. Smooth animations create seamless transitions between sections, offering a fluid and engaging browsing experience. The responsive design, built with HTML and CSS, ensures compatibility across devices, while jQuery optimizes functionality, making the website both visually appealing and easy to navigate.",
     "category": "web"
   },
-  {
+    {
     "id": 4,
-    "link": "https://anteqs-ecommerce.netlify.app/",
-    "title": "E-store",
-    "image": "http://res.cloudinary.com/dxoemtk19/image/upload/v1738165640/portfolio-assets/omwmazbw84fpxpcycmpt.png",
-    "video": "http://res.cloudinary.com/dxoemtk19/video/upload/v1738165631/portfolio-assets/cykwdspiy9vip9yxj8ze.mp4",
-    "ldescription": "Designed a visually appealing website using HTML, CSS, and JavaScript, featuring scroll animations and Google Maps integration.",
-    "bdescription": "Designed a visually appealing website using HTML, CSS, and JavaScript, featuring smooth scroll animations and Google Maps integration to create an interactive and engaging user experience. The website incorporates visually striking animations triggered by scroll events, enhancing the flow of content and making navigation feel dynamic. Google Maps is seamlessly integrated to provide users with interactive location-based features, improving usability. The combination of HTML, CSS, and JavaScript ensures a responsive, modern design that adapts across different devices while offering an intuitive and visually rich browsing experience.",
-    "category": "web"
+    "link": "https://github.com/ayindequdus22/shoppe.git",
+    "title": "Shoppe",
+    "image": "http://res.cloudinary.com/dxoemtk19/image/upload/v1740823331/portfolio-assets/z3vycw5bbryet8vt0ydn.png",
+    "video": "http://res.cloudinary.com/dxoemtk19/video/upload/v1740823321/portfolio-assets/pis9rr29vrq8r0olac3a.mp4",
+    "ldescription": "A modern e-commerce app with secure authentication, a category carousel, and a dynamic home featuring flash deals with a countdown timer.",
+    "bdescription": "Experience seamless shopping with our modern e-commerce mobile app. Get started with a secure registration and login process with robust input validation to ensure smooth access. The app welcomes users with an interactive carousel showcasing different product categories, making browsing easy and intuitive. On the home page, discover exciting flash deals with a live countdown timer, ensuring you never miss out on great discounts. Browse through a wide range of products, all displayed in a user-friendly layout designed for an engaging shopping experience. Enjoy a sleek, responsive, and feature-rich app that makes online shopping effortless!",
+    "category": "mobile"
   },
   {
     "id": 5,
@@ -69,15 +69,15 @@
     "bdescription": "Designed and developed a modern, responsive banking app UI using React, TypeScript, and React Router DOM, ensuring smooth and intuitive navigation. The interface is styled with Tailwind CSS, providing a clean and scalable design, while GSAP animations enhance the user experience with fluid transitions and dynamic effects. To foster seamless communication, a real-time messaging feature was integrated, allowing users to interact directly with the owner. The hero page is brought to life with interactive particle animations powered by tsparticles, adding a visually engaging touch. Through a combination of real-time interactivity and sleek UI elements, the application delivers an immersive and user-friendly experience.",
     "category": "web"
   },
-  {
+{
     "id": 8,
-    "link": "https://github.com/ayindequdus22/shoppe.git",
-    "title": "Shoppe",
-    "image": "http://res.cloudinary.com/dxoemtk19/image/upload/v1740823331/portfolio-assets/z3vycw5bbryet8vt0ydn.png",
-    "video": "http://res.cloudinary.com/dxoemtk19/video/upload/v1740823321/portfolio-assets/pis9rr29vrq8r0olac3a.mp4",
-    "ldescription": "A modern e-commerce app with secure authentication, a category carousel, and a dynamic home featuring flash deals with a countdown timer.",
-    "bdescription": "Experience seamless shopping with our modern e-commerce mobile app. Get started with a secure registration and login process with robust input validation to ensure smooth access. The app welcomes users with an interactive carousel showcasing different product categories, making browsing easy and intuitive. On the home page, discover exciting flash deals with a live countdown timer, ensuring you never miss out on great discounts. Browse through a wide range of products, all displayed in a user-friendly layout designed for an engaging shopping experience. Enjoy a sleek, responsive, and feature-rich app that makes online shopping effortless!",
-    "category": "mobile"
+    "link": "https://anteqs-ecommerce.netlify.app/",
+    "title": "E-store",
+    "image": "http://res.cloudinary.com/dxoemtk19/image/upload/v1738165640/portfolio-assets/omwmazbw84fpxpcycmpt.png",
+    "video": "http://res.cloudinary.com/dxoemtk19/video/upload/v1738165631/portfolio-assets/cykwdspiy9vip9yxj8ze.mp4",
+    "ldescription": "Designed a visually appealing website using HTML, CSS, and JavaScript, featuring scroll animations and Google Maps integration.",
+    "bdescription": "Designed a visually appealing website using HTML, CSS, and JavaScript, featuring smooth scroll animations and Google Maps integration to create an interactive and engaging user experience. The website incorporates visually striking animations triggered by scroll events, enhancing the flow of content and making navigation feel dynamic. Google Maps is seamlessly integrated to provide users with interactive location-based features, improving usability. The combination of HTML, CSS, and JavaScript ensures a responsive, modern design that adapts across different devices while offering an intuitive and visually rich browsing experience.",
+    "category": "web"
   },
   {
     "id": 9,
