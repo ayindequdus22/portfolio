@@ -7,7 +7,7 @@ const Experience = (): React.JSX.Element => {
             title: "Frontend Developer",
             company: "Nomad Technologies",
             type: "Full Time",
-            duration: "Jun 2025 - Nov 2025",
+            duration: "Jun 2025 - May 2026",
             responsibilities: [
                 "Collaborated with product designers and fellow developers to build and maintain core web applications supporting microfinance operations",
                 "Leveraged React, TypeScript, and Tailwind CSS to deliver scalable, maintainable frontend architecture",
