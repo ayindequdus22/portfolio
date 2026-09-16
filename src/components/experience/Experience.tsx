@@ -1,5 +1,17 @@
 import React from 'react'
 
+
+// Built a complete digital banking platform using React, TypeScript, React Router, Axios, and TanStack Query, supporting dashboards, account management, transfers, bill payments, investments, statements, and transaction history.
+// Importance: Demonstrates ownership of a real-world fintech product across multiple customer journeys.
+
+// Implemented secure banking authentication with login, MFA setup, passcode updates, protected routes, session restoration, token refresh, inactivity timeout, and logout handling.
+// Importance: Shows practical experience building security-sensitive user flows required in financial applications.
+
+// Integrated APIs for airtime, data, electricity, cable TV, betting, interbank transfers, Reliance account transfers, investment booking, and target savings.
+// Importance: Demonstrates the ability to turn complex banking and third-party API contracts into usable customer-facing workflows.
+
+// Created reusable transaction patterns involving account selection, account validation, OTP verification, PIN authorization, transaction references, toast feedback, loading states, error handling, and query invalidation.
+// Importance: Shows that you designed consistent and reliable financial transaction experiences rather than isolated screens
 const Experience = (): React.JSX.Element => {
     const experiences = [
         {
@@ -27,9 +39,20 @@ const Experience = (): React.JSX.Element => {
                 "Applied hashing techniques to safeguard transactional details, reinforcing data privacy and platform security"
             ]
         },
-
         {
             id: 3,
+            title: "Frontend Developer",
+            company: "Reliance MFB",
+            type: "Contract",
+            duration: "Jun 2026 - Sep 2026",
+            responsibilities: [
+                "Built a complete digital banking platform using React, TypeScript, React Router, Axios, and TanStack Query, supporting dashboards, account management, transfers, bill payments, investments, statements, and transaction history"
+                "Implemented secure banking authentication with login, MFA setup, passcode updates, protected routes, session restoration, token refresh, inactivity timeout, and logout handling."
+                "Integrated APIs for airtime, data, electricity, cable TV, betting, interbank transfers, Reliance account transfers, investment booking, and target savings."
+                "Created reusable transaction patterns involving account selection, account validation, OTP verification, PIN authorization, transaction references, toast feedback, loading states, error handling, and query invalidation."
+ },
+        {
+            id: 4,
             type: "Contract",
             company: "AvenoTrust",
             duration: "Jun 2025",
@@ -41,7 +64,7 @@ const Experience = (): React.JSX.Element => {
             ]
         },
         {
-            id: 4,
+            id: 5,
             title: "Frontend Developer",
             company: "EliteOceanic",
             type: "Contract",
@@ -53,7 +76,7 @@ const Experience = (): React.JSX.Element => {
             ]
         },
         {
-            id: 5,
+            id: 6,
             title: "Frontend Developer",
             company: "ADC Hackathon 2025 – Split-The-Cost",
             type: "Hackathon",
@@ -66,7 +89,7 @@ const Experience = (): React.JSX.Element => {
             ]
         },
         {
-            id: 6,
+            id: 7,
             title: "Backend Developer (Contract)",
             company: "Menubars",
             type: "Contract",
