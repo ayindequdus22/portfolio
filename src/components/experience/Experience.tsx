@@ -50,7 +50,7 @@ const Experience = (): React.JSX.Element => {
                 "Implemented secure banking authentication with login, MFA setup, passcode updates, protected routes, session restoration, token refresh, inactivity timeout, and logout handling",
                 "Integrated APIs for airtime, data, electricity, cable TV, betting, interbank transfers, Reliance account transfers, investment booking, and target savings",
                 "Created reusable transaction patterns involving account selection, account validation, OTP verification, PIN authorization, transaction references, toast feedback, loading states, error handling, and query invalidation"
- },
+ },],
         {
             id: 4,
             type: "Contract",
