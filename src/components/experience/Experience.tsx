@@ -1,147 +1,40 @@
-import React from 'react'
+import { usePortfolioContent } from '../../hooks/usePortfolioContent'
 
+function formatDate(value?: string) {
+  if (!value) return 'Present'
+  if (!/^\d{4}-\d{2}/.test(value)) return value
 
-// Built a complete digital banking platform using React, TypeScript, React Router, Axios, and TanStack Query, supporting dashboards, account management, transfers, bill payments, investments, statements, and transaction history.
-// Importance: Demonstrates ownership of a real-world fintech product across multiple customer journeys.
+  return new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric' }).format(new Date(`${value}T12:00:00`))
+}
 
-// Implemented secure banking authentication with login, MFA setup, passcode updates, protected routes, session restoration, token refresh, inactivity timeout, and logout handling.
-// Importance: Shows practical experience building security-sensitive user flows required in financial applications.
+function Experience() {
+  const { data } = usePortfolioContent()
 
-// Integrated APIs for airtime, data, electricity, cable TV, betting, interbank transfers, Reliance account transfers, investment booking, and target savings.
-// Importance: Demonstrates the ability to turn complex banking and third-party API contracts into usable customer-facing workflows.
+  return (
+    <section className="experience section page-width" id="experience" aria-labelledby="experience-title">
+      <div className="section-label"><span>04</span><span>Experience</span></div>
+      <div className="experience-header">
+        <h2 id="experience-title">Helping teams make complex products feel simple.</h2>
+        <p>Selected roles, contracts, and collaborations.</p>
+      </div>
 
-// Created reusable transaction patterns involving account selection, account validation, OTP verification, PIN authorization, transaction references, toast feedback, loading states, error handling, and query invalidation.
-// Importance: Shows that you designed consistent and reliable financial transaction experiences rather than isolated screens
-const Experience = (): React.JSX.Element => {
-    const experiences = [
-        {
-            id: 1,
-            title: "Frontend Developer",
-            company: "Nomad Technologies",
-            type: "Full Time",
-            duration: "Jun 2025 - May 2026",
-            responsibilities: [
-                "Collaborated with product designers and fellow developers to build and maintain core web applications supporting microfinance operations",
-                "Leveraged React, TypeScript, and Tailwind CSS to deliver scalable, maintainable frontend architecture",
-                "Contributed to performance optimization and UI standardization across multiple banking-related app components, improving user experience and operational efficiency"
-            ]
-        },
-        {
-            id: 2,
-            title: "Frontend Developer",
-            company: "Lightway MFB",
-            type: "Contract",
-            duration: "Aug 2025",
-            responsibilities: [
-                "Collaborated with a cross-functional team of designers and developers to build secure, user-friendly financial interfaces tailored to microbanking operations",
-                "Utilized TanStack Query to manage money transfers and transaction requests with real-time data synchronization",
-                "Implemented React Hook Form for robust input validation across sensitive financial forms",
-                "Applied hashing techniques to safeguard transactional details, reinforcing data privacy and platform security"
-            ]
-        },
-        {
-            id: 3,
-            title: "Frontend Developer",
-            company: "Reliance MFB",
-            type: "Contract",
-            duration: "Jun 2026 - Sep 2026",
-            responsibilities: [
-                "Built a complete digital banking platform using React, TypeScript, React Router, Axios, and TanStack Query, supporting dashboards, account management, transfers, bill payments, investments, statements, and transaction history",
-                "Implemented secure banking authentication with login, MFA setup, passcode updates, protected routes, session restoration, token refresh, inactivity timeout, and logout handling",
-                "Integrated APIs for airtime, data, electricity, cable TV, betting, interbank transfers, Reliance account transfers, investment booking, and target savings",
-                "Created reusable transaction patterns involving account selection, account validation, OTP verification, PIN authorization, transaction references, toast feedback, loading states, error handling, and query invalidation"
- },],
-        {
-            id: 4,
-            type: "Contract",
-            company: "AvenoTrust",
-            duration: "Jun 2025",
-            title: "Flutter Developer",
-            responsibilities: [
-                "Developed and shipped features for a production-level fintech application using Flutter, working within an Agile team to deliver a polished product to thousands of users.",
-                "Orchestrated app-wide state management using GetX, creating a predictable and maintainable data flow for a complex financial application.",
-                "Integrated RESTful APIs using Dio, handling authentication, data fetching, and error handling for a seamless user experience."
-            ]
-        },
-        {
-            id: 5,
-            title: "Frontend Developer",
-            company: "EliteOceanic",
-            type: "Contract",
-            duration: "Oct 2024 - Nov 2024",
-            responsibilities: [
-                "Styled the app with Tailwind CSS and implemented GSAP animations for smooth transitions",
-                "Designed and implemented scalable frontend architecture, improving code maintainability and team efficiency",
-                "Optimized rendering performance, reduced load time through code-splitting and lazy loading",
-            ]
-        },
-        {
-            id: 6,
-            title: "Frontend Developer",
-            company: "ADC Hackathon 2025 – Split-The-Cost",
-            type: "Hackathon",
-            duration: "Mar 2025 - May 2025",
-            responsibilities: [
-                "Designed a sleek expense-tracking app using React, TypeScript, React Router DOM, TanStack Query, and React Hook Form",
-                "Built theme toggling (light/dark/system) using React Context and Tailwind CSS",
-                "Implemented pop-ups for adding and tracking expenses in real time",
-                "Developed a breakdown system to easily show users who owes what and how to settle"
-            ]
-        },
-        {
-            id: 7,
-            title: "Backend Developer (Contract)",
-            company: "Menubars",
-            type: "Contract",
-            duration: "2025",
-            responsibilities: [
-                "Implemented secure authentication (JWT & OAuth) and role-based access control for different user types (Admin, Sellers, Customers, Drivers)",
-                "Enhanced security by introducing two-factor authentication (2FA), allowing users to receive OTPs via SMS (Twilio) or email (Nodemailer)",
-                "Integrated rate-limiting to prevent API abuse and ensure system stability when there is high traffic",
-                "Utilized MongoDB for flexible data storage and PostgreSQL for structured transactional data, ensuring optimal performance for different use cases"
-            ]
-        }
-    ];
-
-    return (
-        <section className="pt-28 px-40 max-mdLap:px-20 max-tab:px-12 max-mdPhone:px-4">
-            <h1 className="text-2xl font-semibold mb-4">Professional Journey</h1>
-
-            <div className="relative flex flex-col gap-6 border-l-2 border-[rgb(32,32,34)] mb-2 max-tab:border-none max-tab:static">
-                {experiences.map((v, i) => (
-                    <div key={i} className="relative max-tab:ml-0 ml-6 max-tab:static" >
-                        {/* timeline dot */}
-                        <div className="max-tab:hidden absolute left-[-2.3rem] w-6 h-6 bg-primary rounded-full border-4 border-white/50"></div>
-
-                        <div className="bg-[rgb(32,32,34)] p-6 rounded-lg shadow-md shadow-zinc-900">
-                            <div className="flex justify-between items-center">
-                                <h2 className="font-semibold text-xl max-mdPhone:text-sm">{v.title}</h2>
-                                <p className="text-[rgb(214,214,214)] text-base max-mdPhone:text-sm">{v.duration}</p>
-                            </div>
-
-                            <div className="flex gap-2 mt-1">
-                                <p className="text-primary">{v.company}</p>
-                                <span className="bg-primary place-self-center bg-opacity-20 text-primary rounded-lg px-2 text-sm">
-                                    {v.type}
-                                </span>
-                            </div>
-
-                            <ul className="pt-4 space-y-1.5">
-                                {v.responsibilities.map((resp, j) => (
-                                    <li key={j} className="flex items-start">
-                                        {/* <span className="mr-1 mt-1  h-1.5 w-1.5 bg-primary rounded-full flex-shrink-0"></span> */}
-                                        <p className="text-sm max-phone:text-xs">{resp}</p>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                ))}
+      <div className="timeline">
+        {data.experiences.map((experience, index) => (
+          <article className="timeline-item" key={experience._id}>
+            <div className="timeline-marker">{String(index + 1).padStart(2, '0')}</div>
+            <div className="timeline-main">
+              <p className="timeline-date">{formatDate(experience.startDate)} — {experience.current ? 'Present' : formatDate(experience.endDate)}</p>
+              <h3>{experience.role}</h3>
+              <div className="timeline-company"><span>{experience.company}</span><i>{experience.employmentType}</i></div>
             </div>
-        </section>
-
-
-    )
+            <ul>
+              {experience.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
 }
 
 export default Experience

@@ -1,13 +1,21 @@
-import React from 'react'
 import Hero from './components/hero/Hero'
-// import Footer from './components/myfooter/Footer'
+import About from './components/about/About'
+import Skill from './components/skill/Skill'
+import Experience from './components/experience/Experience'
+import Project from './components/project/Project'
+import Contact from './components/contact/Contact'
 
-const Home = ():React.JSX.Element => {
+function Home() {
   return (
-<>
-<Hero/>
-{/* <Footer/> */}
-</>  )
+    <>
+      <Hero />
+      <About />
+      <Skill />
+      <Experience />
+      <Project limit={4} />
+      <Contact />
+    </>
+  )
 }
 
 export default Home

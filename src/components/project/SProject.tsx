@@ -1,86 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import ReactPlayer from 'react-player'
-import projects from "../../assets/projects.json";
-// type projectType = {
-    //     id: number,
-    //     link: string,
-    //     title: string,
-    //     image: string,
-    //     video: string,
-    //     ldescription: string,
-    //     bdescription: string
-    // }[]
+import { FiArrowLeft, FiArrowUpRight, FiGithub } from 'react-icons/fi'
+import { Link, useParams } from 'react-router-dom'
+import { usePortfolioContent } from '../../hooks/usePortfolioContent'
 
-const SProject = (): React.JSX.Element => {
-    const { id } = useParams();
-  
-  const { data } = { data: projects };
-      const [isLoading, setIsLoading] = useState(true); 
+function SProject() {
+  const { slug } = useParams()
+  const { data } = usePortfolioContent()
+  const project = data.projects.find((item) => item.slug === slug)
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 600); 
-     return () => clearTimeout(timer); 
-  }, []);
-      const newData = data?.find(p => p.id === parseInt(id as string));
-    const [videoState, setVideoState] = useState<{ play: boolean; muted: boolean; }>({ play: false, muted: true })
-    useEffect(() => {
-        setVideoState({ muted: false, play: true });
-    }, [])
+  if (!project) {
     return (
-
-        <div className='pt-[4.8rem] max-mdPhone:pt-[1.5rem] max-tab:pt-[4.3rem]'>
-            {
-                !isLoading ? <div className="myContainer">
-                    <ReactPlayer
-                        url={newData?.video}
-                        playing={videoState.play}
-                        controls={true}
-                        width="100vw"
-                        height="60vh"
-                        loop={true}
-                        muted={videoState.muted}
-                    />
-
-                    <div className="details p-5 py-4 max-phone:mx-2 max-phone:px-2 bg-[rgb(32,32,34)] mt-2 mx-8 rounded-md">
-                        <h6 className='font-semibold text-xl '>{newData?.title}</h6>
-                        <p className='pt-1 pb-3 text-base max-phone:text-sm'>{newData?.bdescription}</p>
-                        <p>View Demo: <a href={newData?.link} className='text-blue-600' target="_blank" rel="noopener noreferrer">{newData?.link}</a></p>
-                    </div>
-                </div>
-                    : (
-                        <div className='  animate-pulse'>
-                            {/* Image Placeholder */}
-                            <div className="flex items-center justify-center h-[60vh] w-[100vw] bg-gray-300">
-                                <svg className="w-10 h-10  text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                                    <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
-                                </svg>
-                            </div>
-                            <div className="details p-5 py-4 max-phone:mx-2 max-phone:px-2 bg-[rgb(32,32,34)] mt-2 mx-8 rounded-md">
-                                {/* Title Placeholder h6 */}
-                                <div className="h-8 w-5/12  bg-gray-300 rounded" />
-
-                                {/* Description Placeholder p */}
-                                <div className="pt-4 space-y-2">
-                                    <div className="h-5 bg-gray-300 rounded" />
-                                    <div className="h-5  bg-gray-300 rounded" />
-                                    <div className="h-5  bg-gray-300 rounded" />
-                                    <div className="h-5  bg-gray-300 rounded" />
-                                </div>
-
-
-                                {/* Button Placeholder */}
-                                <div className="h-10 w-1/3  mt-3 bg-gray-300 rounded" />
-                            </div>
-
-
-                        </div>
-
-                    )
-            }
-
-        </div>
+      <section className="project-not-found page-width">
+        <p className="eyebrow"><i /> Project not found</p>
+        <h1>That project has moved.</h1>
+        <Link className="button button-primary" to="/projects"><FiArrowLeft /> Back to all work</Link>
+      </section>
     )
+  }
+
+  return (
+    <article className="project-detail page-width">
+      <Link className="back-link" to="/projects"><FiArrowLeft /> All work</Link>
+      <div className="project-detail-heading">
+        <div><p className="eyebrow"><i /> {project.category}</p><h1>{project.title}</h1></div>
+        <p>{project.summary}</p>
+      </div>
+
+      <div className="project-detail-image">
+        {project.image ? <img src={project.image} alt={`${project.title} preview`} /> : <div className="project-image-placeholder" />}
+      </div>
+
+      <div className="project-detail-body">
+        <div className="detail-facts">
+          <div><span>Built with</span><p>{project.technologies.join(' · ')}</p></div>
+          <div><span>Category</span><p>{project.category}</p></div>
+          <div className="detail-links">
+            {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noreferrer">Live site <FiArrowUpRight /></a>}
+            {project.repositoryUrl && <a href={project.repositoryUrl} target="_blank" rel="noreferrer">Source <FiGithub /></a>}
+          </div>
+        </div>
+        <div className="project-description"><h2>The build</h2><p>{project.description}</p></div>
+      </div>
+    </article>
+  )
 }
 
 export default SProject

@@ -1,60 +1,51 @@
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { createBrowserRouter, Outlet, RouterProvider, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import './App.css'
 import Navbar from './components/navbar/Navbar'
-
-import Project from './components/project/Project'
-import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
+import Footer from './components/myfooter/Footer'
 import Home from './Home'
-import About from './components/about/About'
-// import Footer from './components/myfooter/Footer'
-import Contact from './components/contact/Contact'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Project from './components/project/Project'
 import SProject from './components/project/SProject'
-  import gsap from 'gsap'
-  import { useGSAP } from '@gsap/react'
-import Experience from './components/experience/Experience'
-  gsap.registerPlugin(useGSAP);
-function App() {
-  const router = createBrowserRouter([{
-    path: "/",
-    element: <>
-      <Navbar />
-      <Outlet />
-    </>,
-    children: [
-      { path: '', element: <Home /> },
-      { path: 'projects', element: <Project /> },
-      { path: "projects/:id", element: <SProject /> }
-    ]
 
-  },
-  {
-    path: 'about', element: <>
-      <Navbar />
-      <About />
-    </>
-  },  {
-    path: 'experience', element: <>
-      <Navbar />
-      <Experience />
-    </>
-  },
-  {
-    path: 'contact-me', element: <>
-      <Navbar />
-      <Contact />
-    </>,
-  },
-  ])
+const queryClient = new QueryClient()
 
-  const queryClient = new QueryClient();
+function ScrollToTop() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [pathname])
+
+  return null
+}
+
+function SiteLayout() {
   return (
-    <>
-      <QueryClientProvider client={queryClient} >
-        <RouterProvider router={router} />
-      </QueryClientProvider>
-
-    </>
+    <div className="site-shell" id="top">
+      <ScrollToTop />
+      <Navbar />
+      <main><Outlet /></main>
+      <Footer />
+    </div>
   )
 }
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <SiteLayout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: 'projects', element: <Project /> },
+      { path: 'projects/:slug', element: <SProject /> },
+    ],
+  },
+])
+
+function App() {
+  return <QueryClientProvider client={queryClient}><RouterProvider router={router} /></QueryClientProvider>
+}
+
 export default App

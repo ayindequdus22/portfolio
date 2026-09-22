@@ -1,53 +1,32 @@
-import React, { useRef } from 'react'
-import profImg from "../../assets/profile-removebg-preview.png"
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// bg-[#F8F9FA]
-const About = (): React.JSX.Element => {
-  const imageRef = useRef(null);
-  const containerRef  =  useRef(null)
-  useGSAP(() => {
-    gsap.fromTo(imageRef.current, { y: "2rem", opacity: 0 }, { y: 0, opacity: 1, duration: 2 });
-    gsap.fromTo(containerRef.current,      { x: "-1vw", opacity: 0. }, 
-       { x: "0", opacity: 1, duration: 3 });
-    // let tl = gsap.timeline();
+import { FiArrowUpRight } from 'react-icons/fi'
+import profileImage from '../../assets/profile-removebg-preview.png'
+import { usePortfolioContent } from '../../hooks/usePortfolioContent'
 
-    // tl.fromTo("#heroHeaderText", 
-    //   { x: "-100vw", opacity: 0.3 }, 
-    //   { x: "0", opacity: 1, duration: 1 }
-    // )
-    // .fromTo("#heroDetails", 
-    //   { x: "-100vw", opacity: 0.4 }, 
-    //   { x: "0", opacity: 1, duration: 1 }
-    // )
-    // .fromTo("#heroBtn", 
-    //   { x: "-100vw", opacity: 0.4 }, 
-    //   { x: "0", opacity: 1, duration: 1 }
-    // );
+function About() {
+  const { data } = usePortfolioContent()
+  const { site } = data
 
-  });
   return (
-    <main className='px-[10%] dfAc  bg-[#2a2a2a]   gap-4 max-mdLap:flex-col  max-mdLap:pt-32 h-[100vh]  max-mdPhone:h-[102vh] max-mdLap:pb-16'>
-      <div className="details  max-mdLap:pt-4 flex-[1_1_60%] max-mdLap:order-2 " ref={containerRef}>
-        <h1 className='text-5xl font-semibold  text-primary font-montserrat pb-2'>About Me</h1>
-        <p className='font-roboto text-lg font-medium max-mdPhone:text-base'>
-          I'm a passionate Software Developer with 3+ years of experience in building responsive and scalable web and mobile applications. Skilled in both front-end and back-end technologies like React, React Native, Express.js, Node.js, Flutter, MongoDB, and MySQL. I focus on solving problems, creating seamless user experiences, and continuously improving my skills.</p>
-      <a className='btn mt-4 block leading-[3.5rem] dfAc text-center font-montserrat font-semibold text-xl border-2 w-60 ' id='heroBtn'
-                 href={"https://docs.google.com/document/d/1iJ9zQFpN5CJZzMMgJH5IAK3BVQXfbMwdRBOAHulOMCM/edit?usp=drive_link"} 
-                 target="_blank" rel="noopener noreferrer"> 
-                RESUME
-                    <FontAwesomeIcon icon={faDownload} className='pl-2' />
-                </a>
-      </div>
+    <section className="about section page-width" id="about" aria-labelledby="about-title">
+      <div className="section-label"><span>02</span><span>About</span></div>
+      <div className="about-grid">
+        <div className="about-portrait">
+          <div className="portrait-orbit" />
+          <img src={profileImage} alt={site.name} />
+          <p>Based in<br />Nigeria</p>
+        </div>
 
-      <div ref={imageRef} className="image flex-[1_1_40%] bg-white dfAc max-mdLap:order-1 flex-shrink">
-        <picture>
-          <img src={profImg} alt="profile image" className='h-[20rem] max-mdLap:h-[15rem] ' />
-        </picture>
+        <div className="about-copy">
+          <h2 id="about-title">A considered approach to building things that matter.</h2>
+          <p>I&apos;m {site.name}, a frontend developer who enjoys the practical side of good design: finding the clearest path through a task, making it feel effortless, and accounting for the moments that don&apos;t go to plan.</p>
+          <p>Over the last few years I&apos;ve worked across web and mobile products, from commerce experiments to security-conscious banking platforms. I care about legible systems, meaningful motion, and products that earn trust.</p>
+          <div className="about-meta">
+            <span>{site.location}</span>
+            {site.resumeUrl && <a className="text-link" href={site.resumeUrl} target="_blank" rel="noreferrer">More about me <FiArrowUpRight /></a>}
+          </div>
+        </div>
       </div>
-    </main>
+    </section>
   )
 }
 

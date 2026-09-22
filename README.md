@@ -1,10 +1,50 @@
-# Just a little something about me 
-I'm a software developer from Akute, Ogun State, Nigeria.
+# Opeyemi Ayinde — Portfolio
 
-My journey into tech began in 2019, back in SS2. While most of my peers already had a clear vision of their career paths, I was still exploring. I had always been fascinated by technology—from phones to computers to anything innovative—but I hadn’t yet figured out what exactly I wanted to do.
+A redesigned React portfolio with a companion Sanity Studio. The public site is intentionally resilient: it renders the current portfolio content while Sanity is unconfigured, then automatically uses published CMS content when credentials are available.
 
-One day, a teacher asked me the big question: “What do you want to become?” I didn’t have an answer. Later that evening, I watched the series The Flash and saw Cisco and Felicity working on some really cool tech. That was my lightbulb moment—I knew I wanted to become a software developer.
+## Run the portfolio
 
-Since then, I’ve been on a continuous journey of learning, building, and growing in the world of software development.
+```bash
+npm install
+cp .env.example .env
+npm run dev
+```
 
-```Hopefully, one day I’ll build the next generation of life-changing technology```
+## Connect Sanity
+
+1. Create a Sanity project and a public dataset from [sanity.io/manage](https://www.sanity.io/manage).
+2. Add the project values to the root `.env` file:
+
+   ```env
+   VITE_SANITY_PROJECT_ID=your-project-id
+   VITE_SANITY_DATASET=production
+   ```
+
+3. Add the same values to `studio/.env` using the names in [`studio/.env.example`](studio/.env.example).
+4. Start the editor:
+
+   ```bash
+   npm run cms:dev
+   ```
+
+5. In the Studio, publish one **Site settings** document, then add **Project** and **Experience** documents. The field names and presentation order are defined in [`studio/schemaTypes`](studio/schemaTypes).
+6. Add `http://localhost:5173` and the deployed portfolio URL to the project’s CORS origins in Sanity Manage. The website reads only published content via the CDN, so no Sanity API token belongs in `.env`.
+
+The content query is in [`src/lib/queries.ts`](src/lib/queries.ts), and the safe client configuration lives in [`src/lib/sanity.ts`](src/lib/sanity.ts). The local fallback data is in [`src/content/fallback.ts`](src/content/fallback.ts).
+
+## Studio commands
+
+```bash
+npm run cms:dev    # work on the Studio locally
+npm run cms:build  # build it for deployment
+```
+
+Deploy the Studio from `studio/` with `npm run deploy` once you have authenticated with Sanity.
+
+## Verification
+
+```bash
+npm run lint
+npm run build
+npm run cms:build
+```

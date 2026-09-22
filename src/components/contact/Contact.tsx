@@ -1,124 +1,69 @@
-import React, { FormEvent, useRef, useState } from "react";
-import emailjs from '@emailjs/browser';
-import { IoLogoGithub } from "react-icons/io5";
-import { IoLogoLinkedin } from "react-icons/io5";
-import { emailPublicKey, emailServiceId, emailTemplateId } from "./env-variable";
-import { LuLoaderCircle } from "react-icons/lu";
-const Contact = (): React.JSX.Element => {
-  const form = useRef<HTMLFormElement>(null);
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<string | null>(null);
+import { type FormEvent, useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
+import { FaGithub, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6'
+import { FiArrowUpRight } from 'react-icons/fi'
+import { emailPublicKey, emailServiceId, emailTemplateId } from './env-variable'
+import { usePortfolioContent } from '../../hooks/usePortfolioContent'
 
-  const sendEmail = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!form.current) return;
+function socialIcon(label: string) {
+  const key = label.toLowerCase()
+  if (key.includes('github')) return <FaGithub />
+  if (key.includes('linkedin')) return <FaLinkedinIn />
+  return <FaXTwitter />
+}
 
-    setLoading(true);
-    setStatus(null);
+function Contact() {
+  const form = useRef<HTMLFormElement>(null)
+  const [status, setStatus] = useState('')
+  const [isSending, setIsSending] = useState(false)
+  const { data } = usePortfolioContent()
+  const { site } = data
 
-    emailjs
-      .sendForm(emailServiceId, emailTemplateId, form.current, {
-        publicKey: emailPublicKey,
-      })
-      .then(
-        () => {
-          setStatus("✅ Message sent successfully!");
-          setLoading(false);
-          form.current?.reset();
-        },
-        () => {
-          setStatus("❌ Failed to send. Please try again.");
-          setLoading(false);
-        }
-      );
-  };
+  async function sendEmail(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    if (!form.current) return
+
+    if (!emailServiceId || !emailTemplateId || !emailPublicKey) {
+      setStatus('The contact form is not configured yet. Please use the email link instead.')
+      return
+    }
+
+    setIsSending(true)
+    setStatus('')
+    try {
+      await emailjs.sendForm(emailServiceId, emailTemplateId, form.current, { publicKey: emailPublicKey })
+      form.current.reset()
+      setStatus('Message sent — I’ll get back to you soon.')
+    } catch {
+      setStatus('Something went wrong. Please email me directly instead.')
+    } finally {
+      setIsSending(false)
+    }
+  }
 
   return (
-    <>
-    
-    <section className='pt-28 px-40  max-mdLap:px-20 max-tab:px-12 max-mdPhone:px-4'>
-
-      <div className='flex gap-4 min-h-40 justify-center text-center max-mdLap:flex-col'>
-        <div className='h-[inherit] flex flex-col gap-4 flex-1 '>
-          {/* LinkedIn Section */}
-          <a className='flex-1 bg-[#202022] p-6 rounded-md space-y-2 place-items-center '
-            target='_blank'
-            rel="noopener noreferrer"
-            href="https://www.linkedin.com/in/opeyemi-ayinde-08540823b/"
-          >
-            <IoLogoLinkedin className="size-10" />
-          </a>
-          {/* Email Section */}
-
-          <a className='flex-1 dfAc bg-[#202022] p-6 rounded-md space-y-2'
-            href="mailto:abdulqudusayinde60@gmail.com"
-          >
-            abdulqudusayinde60@gmail.com
-          </a>
+    <section className="contact section page-width" id="contact" aria-labelledby="contact-title">
+      <div className="section-label"><span>06</span><span>Contact</span></div>
+      <div className="contact-grid">
+        <div className="contact-intro">
+          <p className="eyebrow"><i /> {site.availability}</p>
+          <h2 id="contact-title">Have a thoughtful problem to solve?</h2>
+          <p>I&apos;m always glad to hear about meaningful product work, interesting teams, and new collaborations.</p>
+          <a className="email-link" href={`mailto:${site.email}`}>{site.email} <FiArrowUpRight /></a>
+          <div className="social-links" aria-label="Social profiles">
+            {site.socialLinks.map((social) => <a href={social.url} target="_blank" rel="noreferrer" aria-label={social.label} key={social.label}>{socialIcon(social.label)}</a>)}
+          </div>
         </div>
 
-        {/* GitHub Section */}
-        <a
-          className='bg-[#202022] p-6 rounded-md space-y-2 place-items-center h-[inherit] flex-1'
-          target='_blank'
-          rel="noopener noreferrer"
-          href="https://github.com/ayindequdus22"
-        ><IoLogoGithub className="text-white size-20" />
-          <h1 className='text-3xl font-semibold max-mdPhone:text-2xl'>Github Profile</h1>
-          <p className='text-lg max-mdPhone:text-base'>Find more of my amazing projects here</p>
-        </a>
-
-
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
+          <label>Your name<input required name="name" type="text" placeholder="Jane Doe" /></label>
+          <label>Email address<input required name="email" type="email" placeholder="jane@company.com" /></label>
+          <label>How can I help?<textarea required name="message" rows={5} placeholder="Tell me a little about the work..." /></label>
+          <button type="submit" className="button button-primary" disabled={isSending}>{isSending ? 'Sending...' : 'Send message'} <FiArrowUpRight /></button>
+          {status && <p className="form-status" aria-live="polite">{status}</p>}
+        </form>
       </div>
     </section>
-
-      <form ref={form} onSubmit={sendEmail} className="mt-20 mb-10 space-y-2 px-40  max-mdLap:px-20 max-tab:px-12 max-mdPhone:px-4">
-      
-     <h2  className='text-2xl font-semibold max-mdPhone:text-xl'>Get in Touch</h2> 
-        <div>
-          <label className="block text-sm mb-1 text-gray-300">Name</label>
-          <input
-            required type="text"
-            name="name"
-            placeholder="John Doe"
-            className="w-full rounded-lg bg-[#26262A] px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-
-        {/* Email */}
-        <div>
-          <label htmlFor="email" className="block text-sm mb-1 text-gray-300">Email</label>
-          <input
-            required type="email"
-            name="email" id="email"
-
-            placeholder="john.doe@example.com"
-            className="w-full rounded-lg bg-[#26262A] px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-
-        {/* Message */}
-        <div>
-          <label htmlFor="message" className="block text-sm mb-1 text-gray-300">Message</label>
-          <textarea
-            name="message" id="message"
-            placeholder="Enter your message here"
-            rows={4}
-            className="resize-none w-full rounded-lg bg-[#26262A] px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-          />
-        </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit" disabled={loading}
-          className="w-full bg-[#3A3A3F] hover:bg-[#4a4a52] text-white font-medium py-3 rounded-lg transition-colors place-items-center"
-        >
-          {loading ? <LuLoaderCircle className="animate-spin h-6 w-6 text-white"/> : "Send Message"}
-        </button>
-          {/* Status Message */}
-        {status && <p className="text-center text-sm text-gray-300">{status}</p>}
-      </form>
-</>
   )
 }
 

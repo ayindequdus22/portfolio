@@ -1,91 +1,42 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { FiArrowUpRight } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
-import projects from "../../assets/projects.json";
+import { usePortfolioContent } from '../../hooks/usePortfolioContent'
 
+type ProjectProps = {
+  limit?: number
+}
 
+function Project({ limit }: ProjectProps) {
+  const { data } = usePortfolioContent()
+  const projects = limit ? data.projects.filter((project) => project.featured).slice(0, limit) : data.projects
+  const displayedProjects = projects.length ? projects : data.projects.slice(0, limit)
 
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
-const Project = (): React.JSX.Element => {
-    const projectRef = useRef<HTMLDivElement | null>(null);
-    const { data } = { data: projects };
-      const [isLoading, setIsLoading] = useState(true); 
+  return (
+    <section className="projects section page-width" id="work" aria-labelledby="projects-title">
+      <div className="section-label"><span>05</span><span>Selected work</span></div>
+      <div className="projects-header">
+        <h2 id="projects-title">A selection of products built with equal parts rigour and curiosity.</h2>
+        {limit && <Link className="text-link" to="/projects">See all work <FiArrowUpRight /></Link>}
+      </div>
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 600); 
-     return () => clearTimeout(timer); 
-  }, []);
-
-    useGSAP(() => {
-        if (!isLoading && projectRef.current) {
-            gsap.fromTo(
-                projectRef.current,
-                { opacity: 0, y: 100 },
-                {
-                    opacity: 1, y: 0, duration: 3, stagger: 0.3,
-                }
-            );
-        }
-    }, [isLoading, data]);
-
-    return (
-        <section className='pt-28 px-[4%] pb-6'>
-            <h1 className='font-montserrat text-3xl font-semibold text-primary'>Projects</h1>
-            {!isLoading
-                ? (<div className="dfAc  flex-wrap gap-x-6 gap-y-8 pt-6" ref={projectRef} >
-                    {data?.map((v: any) =>
-                    (
-                        <div key={v?.id} className='indigo bg-[rgb(32,32,34)] w-96 rounded-md overflow-hidden shadow-md'>
-                            <div className="image">
-                                <img src={v?.image} alt={v?.title} loading='lazy' className={`w-96 h-56 ${v?.category === "mobile" && "object-scale-down"}`} />
-                            </div>
-                            <div className="details py-3 px-4 h-52 max-phone:h-[16rem]">
-                                <h6 className='text-xl font-montserrat font-semibold'>{v?.title}</h6>
-                                <p className='text-base   pt-2'>{v.ldescription}</p>
-                                <Link to={`/projects/${v?.id}`} className='btn px-6 inline-block py-2 mt-3 text-base'>View Details</Link>
-                            </div>
-                        </div>
-
-
-                    ))}
-                </div>) : (
-                    <div className="dfAc  flex-wrap gap-x-6 gap-y-8 pt-6">
-                        {Array.from({ length: 9 }).map((_, index) => (
-                            <div key={index} className="animate-pulse bg-[rgb(32,32,34)] w-96 rounded-md overflow-hidden shadow-md">
-                                {/* Image Placeholder */}
-                                <div className="flex items-center justify-center h-44 w-96 bg-gray-300">
-                                    <svg className="w-10 h-10  text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
-                                        <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
-                                    </svg>
-                                </div>
-
-                                {/* details */}
-                                <div className="details  py-3 px-4 h-52 ">
-                                    {/* Title Placeholder h6 */}
-                                    <div className="h-8 w-5/12  bg-gray-300 rounded" />
-
-                                    {/* Description Placeholder p */}
-                                    <div className="pt-4 space-y-2">
-                                        <div className="h-5 bg-gray-300 rounded" />
-                                        <div className="h-5  bg-gray-300 rounded" />
-                                        <div className="h-5  bg-gray-300 rounded" />
-                                    </div>
-
-
-                                    {/* Button Placeholder */}
-                                    <div className="h-10 w-1/3  mt-3 bg-gray-300 rounded" />
-                                </div>
-
-                            </div>
-                        ))}
-                    </div>
-                )
-            }
-
-        </section>
-    )
+      <div className="project-grid">
+        {displayedProjects.map((project, index) => (
+          <article className="project-card" key={project._id}>
+            <Link to={`/projects/${project.slug}`} className="project-image" aria-label={`View ${project.title} project details`}>
+              {project.image ? <img src={project.image} alt="" loading={index > 1 ? 'lazy' : 'eager'} /> : <div className="project-image-placeholder" />}
+              <span className="project-arrow"><FiArrowUpRight /></span>
+            </Link>
+            <div className="project-info">
+              <div><span className="project-number">{String(index + 1).padStart(2, '0')}</span><span className="project-category">{project.category}</span></div>
+              <h3><Link to={`/projects/${project.slug}`}>{project.title}</Link></h3>
+              <p>{project.summary}</p>
+              <div className="tag-list">{project.technologies.slice(0, 3).map((technology) => <span key={technology}>{technology}</span>)}</div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
 }
 
 export default Project
