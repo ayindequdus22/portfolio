@@ -46,9 +46,10 @@ function Contact() {
       <div className="section-label"><span>06</span><span>Contact</span></div>
       <div className="contact-grid">
         <div className="contact-intro">
-          <p className="eyebrow"><i /> {site.availability}</p>
-          <h2 id="contact-title">Have a thoughtful problem to solve?</h2>
-          <p>I&apos;m always glad to hear about meaningful product work, interesting teams, and new collaborations.</p>
+          <h2 id="contact-title">Get in touch</h2>
+          <p>
+            I'm open to opportunities in web and mobile development. If you're working on something interesting or have a project in mind, feel free to reach out.
+          </p>
           <a className="email-link" href={`mailto:${site.email}`}>{site.email} <FiArrowUpRight /></a>
           <div className="social-links" aria-label="Social profiles">
             {site.socialLinks.map((social) => <a href={social.url} target="_blank" rel="noreferrer" aria-label={social.label} key={social.label}>{socialIcon(social.label)}</a>)}
@@ -56,9 +57,9 @@ function Contact() {
         </div>
 
         <form ref={form} onSubmit={sendEmail} className="contact-form">
-          <label>Your name<input required name="name" type="text" placeholder="Jane Doe" /></label>
-          <label>Email address<input required name="email" type="email" placeholder="jane@company.com" /></label>
-          <label>How can I help?<textarea required name="message" rows={5} placeholder="Tell me a little about the work..." /></label>
+          <label>Your name<input required name="name" type="text" placeholder="Your name" /></label>
+          <label>Email address<input required name="email" type="email" placeholder="your@email.com" /></label>
+          <label>Message<textarea required name="message" rows={5} placeholder="Tell me about your project or opportunity..." /></label>
           <button type="submit" className="button button-primary" disabled={isSending}>{isSending ? 'Sending...' : 'Send message'} <FiArrowUpRight /></button>
           {status && <p className="form-status" aria-live="polite">{status}</p>}
         </form>

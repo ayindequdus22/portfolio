@@ -3,25 +3,15 @@ export type SocialLink = {
   url: string
 }
 
-export type Capability = {
-  number: string
-  title: string
-  description: string
-}
-
 export type SiteSettings = {
   name: string
   monogram: string
-  role: string
-  heroEyebrow: string
   heroTitle: string
   intro: string
-  availability: string
   location: string
   email: string
   resumeUrl?: string
   socialLinks: SocialLink[]
-  capabilities: Capability[]
 }
 
 export type Project = {

@@ -8,8 +8,8 @@ function Footer() {
   return (
     <footer className="footer page-width">
       <Link className="brand" to="/"><span className="brand-mark">{data.site.monogram}</span><span className="brand-name">{data.site.name}</span></Link>
-      <p>© {year} — Designed & built with care.</p>
-      <a href="#top" onClick={(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>Back to top ↑</a>
+      <p>© {year} · {data.site.name}</p>
+      <a href="#top" onClick={(event) => { event.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>Back to top</a>
     </footer>
   )
 }

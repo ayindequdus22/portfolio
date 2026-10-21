@@ -1,18 +1,22 @@
 import rawProjects from '../assets/projects.json'
 import type { ExperienceItem, PortfolioContent, Project } from './types'
 
-const projects: Project[] = rawProjects.map((project) => ({
-  _id: `local-project-${project.id}`,
-  title: project.title,
-  slug: project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
-  summary: project.ldescription.trim(),
-  description: project.bdescription.trim(),
-  image: project.image.replace('http://', 'https://'),
-  liveUrl: project.link,
-  technologies: project.category === 'mobile' ? ['Flutter', 'Dart', 'REST APIs'] : ['React', 'TypeScript', 'Tailwind CSS'],
-  category: project.category,
-  featured: project.id < 5,
-}))
+const projects: Project[] = rawProjects.map((project) => {
+  const isGitHubLink = project.link.includes('github.com')
+  return {
+    _id: `local-project-${project.id}`,
+    title: project.title,
+    slug: project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+    summary: project.ldescription.trim(),
+    description: project.bdescription.trim(),
+    image: project.image.replace('http://', 'https://'),
+    liveUrl: isGitHubLink ? undefined : project.link,
+    repositoryUrl: isGitHubLink ? project.link : undefined,
+    technologies: project.category === 'mobile' ? ['Flutter', 'Dart', 'REST APIs'] : ['React', 'TypeScript', 'Tailwind CSS'],
+    category: project.category,
+    featured: project.id < 5,
+  }
+})
 
 const experiences: ExperienceItem[] = [
   {
@@ -107,25 +111,17 @@ const experiences: ExperienceItem[] = [
 
 export const fallbackContent: PortfolioContent = {
   site: {
-    name: 'Opeyemi Ayinde',
-    monogram: 'OA',
-    role: 'Frontend developer · Fintech builder',
-    heroEyebrow: 'Independent developer based in Nigeria',
-    heroTitle: 'Designing useful digital experiences for people and ambitious teams.',
-    intro: 'I turn complex product requirements into calm, dependable interfaces. My work sits at the intersection of product thinking, frontend systems, and financial technology.',
-    availability: 'Available for select freelance & product collaborations',
-    location: 'Akute, Ogun State, Nigeria',
+    name: 'Qudus',
+    monogram: 'QA',
+    heroTitle: 'Hey, I\'m Qudus. I build web and mobile applications.',
+    intro: 'I build responsive web applications, mobile experiences, and frontend systems, working across modern frontend frameworks and backend integrations.',
+    location: 'Nigeria',
     email: 'abdulqudusayinde60@gmail.com',
     resumeUrl: 'https://docs.google.com/document/d/1iJ9zQFpN5CJZzMMgJH5IAK3BVQXfbMwdRBOAHulOMCM/edit?usp=drive_link',
     socialLinks: [
       { label: 'GitHub', url: 'https://github.com/ayindequdus22' },
       { label: 'LinkedIn', url: 'https://www.linkedin.com/in/opeyemi-ayinde-08540823b/' },
       { label: 'X / Twitter', url: 'https://x.com/anteqs22' },
-    ],
-    capabilities: [
-      { number: '01', title: 'Frontend systems', description: 'Responsive interfaces and component systems that stay precise as the product grows.' },
-      { number: '02', title: 'Financial products', description: 'Thoughtful transaction journeys built around clarity, trust, and edge cases.' },
-      { number: '03', title: 'Mobile experiences', description: 'Cross-platform Flutter applications with reliable state and API integration.' },
     ],
   },
   projects,

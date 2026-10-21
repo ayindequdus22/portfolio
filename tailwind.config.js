@@ -4,12 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#FF9800',
-        mytext: '#282938'
-      }, fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'],
-        roboto: ['Roboto', 'sans-serif'],
-        poppins: ['Poppins', 'sans-serif'],
+        background: '#17191E',
+        surface: '#20232A',
+        elevated: '#252A33',
+        primary: '#F3F4F6',
+        secondary: '#9CA3AF',
+        muted: '#858D9A',
+        border: '#343840',
+        accent: '#6B91D8',
+        success: '#43B581',
+      },
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['DM Mono', 'monospace'],
       },
       screens: {
         'max-mdLap': { 'max': '996px' },

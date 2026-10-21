@@ -1,8 +1,7 @@
 export const portfolioQuery = `{
   "site": *[_type == "siteSettings"][0]{
-    name, monogram, role, heroEyebrow, heroTitle, intro, availability, location, email, resumeUrl,
-    socialLinks[]{label, url},
-    capabilities[]{number, title, description}
+    name, monogram, heroTitle, intro, location, email, resumeUrl,
+    socialLinks[]{label, url}
   },
   "projects": *[_type == "project"] | order(orderRank asc, _createdAt desc){
     _id, title, "slug": slug.current, summary, description,

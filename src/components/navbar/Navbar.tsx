@@ -1,19 +1,18 @@
 import { useState } from 'react'
-import { FiArrowUpRight, FiMenu, FiX } from 'react-icons/fi'
-import { Link, useLocation } from 'react-router-dom'
+import { FiMenu, FiX } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 import { usePortfolioContent } from '../../hooks/usePortfolioContent'
 
 const links = [
   { label: 'About', href: '/#about' },
-  { label: 'Work', href: '/#work' },
+  { label: 'Projects', href: '/#work' },
   { label: 'Experience', href: '/#experience' },
+  { label: 'Contact', href: '/#contact' },
 ]
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const location = useLocation()
   const { data } = usePortfolioContent()
-  const isHome = location.pathname === '/'
 
   function closeMenu() {
     setIsOpen(false)
@@ -29,11 +28,10 @@ function Navbar() {
 
         <div className="nav-desktop-links">
           {links.map((link) => <a href={link.href} key={link.label}>{link.label}</a>)}
+          {data.site.resumeUrl && (
+            <a href={data.site.resumeUrl} target="_blank" rel="noreferrer">Résumé</a>
+          )}
         </div>
-
-        <a className="nav-contact" href={isHome ? '#contact' : '/#contact'}>
-          Let&apos;s talk <FiArrowUpRight aria-hidden="true" />
-        </a>
 
         <button className="nav-menu-button" onClick={() => setIsOpen((open) => !open)} aria-label={isOpen ? 'Close menu' : 'Open menu'} aria-expanded={isOpen}>
           {isOpen ? <FiX /> : <FiMenu />}
@@ -43,7 +41,9 @@ function Navbar() {
       {isOpen && (
         <div className="mobile-nav page-width">
           {links.map((link) => <a href={link.href} key={link.label} onClick={closeMenu}>{link.label}</a>)}
-          <a href={isHome ? '#contact' : '/#contact'} onClick={closeMenu}>Let&apos;s talk</a>
+          {data.site.resumeUrl && (
+            <a href={data.site.resumeUrl} target="_blank" rel="noreferrer" onClick={closeMenu}>Résumé</a>
+          )}
         </div>
       )}
     </header>
